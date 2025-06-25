@@ -99,6 +99,19 @@
       margin-top: 3px;
     }
 
+    /* Home section - flags above text with spacing */
+    .home-text-block {
+      margin-bottom: 3em;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .home-text-block .flag {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      user-select: none;
+    }
+
     /* Home glitch text */
     #home p.glitch-text {
       font-family: 'Press Start 2P', monospace;
@@ -197,12 +210,19 @@
 
   <!-- Home -->
   <div id="home" class="section active">
-    <p class="glitch-text" data-text="Become a whore, join the army of pigs without dignity. Turn off your brain and let your desires speak louder 😵‍💫.">
-      Become a whore, join the army of pigs without dignity. Turn off your brain and let your desires speak louder 😵‍💫.
-    </p>
-    <p class="glitch-text" data-text="Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.">
-      Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.
-    </p>
+    <div class="home-text-block">
+      <div class="flag" aria-label="Bandeira dos Estados Unidos">🇺🇸</div>
+      <p class="glitch-text" data-text="Become a whore, join the army of pigs without dignity. Turn off your brain and let your desires speak louder 😵‍💫.">
+        Become a whore, join the army of pigs without dignity. Turn off your brain and let your desires speak louder 😵‍💫.
+      </p>
+    </div>
+
+    <div class="home-text-block">
+      <div class="flag" aria-label="Bandeira do Brasil">🇧🇷</div>
+      <p class="glitch-text" data-text="Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.">
+        Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.
+      </p>
+    </div>
   </div>
 
   <!-- About -->
