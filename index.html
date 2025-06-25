@@ -156,11 +156,13 @@
     }
 
     .gallery-row img {
-      width: 30%;
+      max-width: 30%;
+      height: auto;
       border-radius: 6px;
       border: 1px solid #555;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      object-fit: cover;
     }
 
     .gallery-row img:hover {
