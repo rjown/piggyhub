@@ -1,112 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>webslut</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>webslut</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-  /* Fundo preto com brilho sutil animado */
-  body {
-    margin: 0; padding: 0;
-    height: 100vh;
-    background: radial-gradient(circle at center, #222 0%, #000 70%);
-    font-family: 'Press Start 2P', monospace;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  /* Efeito glitch no título */
-  h1 {
-    font-size: 2em;
-    position: relative;
-    color: white;
-    text-transform: uppercase;
-    animation: flicker 3s infinite;
-  }
-  h1::before, h1::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    opacity: 0.8;
-    color: #f0f;
-    background: black;
-    clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
-    animation: glitch 2s infinite linear alternate-reverse;
-  }
-  h1::after {
-    left: 2px;
-    text-shadow: -2px 0 red;
-    clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
-    animation-delay: 1s;
-  }
-
-  /* Links estilo pixel */
-  nav {
-    margin-top: 20px;
-  }
-  nav a {
-    display: block;
-    font-size: 1em;
-    color: white;
-    text-decoration: none;
-    margin: 8px 0;
-    letter-spacing: 0.1em;
-    transition: color 0.3s;
-  }
-  nav a:hover {
-    color: #f0f;
-    text-shadow: 0 0 5px #f0f;
-  }
-
-  /* Animações */
-  @keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-      opacity: 1;
+    body {
+      margin: 0; padding: 0;
+      background: radial-gradient(circle at center, #222 0%, #000 70%);
+      font-family: 'Press Start 2P', monospace;
+      color: white;
+      text-align: center;
     }
-    20%, 22%, 24%, 55% {
-      opacity: 0.4;
-    }
-  }
 
-  @keyframes glitch {
-    0% {
+    h1 {
+      font-size: 2em;
+      position: relative;
+      color: white;
+      text-transform: uppercase;
+      animation: flicker 3s infinite;
+      margin: 40px 0 20px;
+    }
+
+    h1::before, h1::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      opacity: 0.8;
+      color: #f0f;
+      background: black;
       clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
-      transform: translate(0);
+      animation: glitch 2s infinite linear alternate-reverse;
     }
-    20% {
-      clip-path: polygon(0 5%, 100% 3%, 100% 30%, 0 29%);
-      transform: translate(-2px, 2px);
+
+    h1::after {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
+      animation-delay: 1s;
     }
-    40% {
-      clip-path: polygon(0 1%, 100% 0%, 100% 32%, 0 33%);
-      transform: translate(2px, -2px);
+
+    nav {
+      margin-bottom: 30px;
     }
-    60% {
-      clip-path: polygon(0 4%, 100% 3%, 100% 29%, 0 28%);
-      transform: translate(-1px, 1px);
+
+    nav a {
+      font-size: 1em;
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      letter-spacing: 0.1em;
+      cursor: pointer;
     }
-    80%, 100% {
-      clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
-      transform: translate(0);
+
+    nav a:hover {
+      color: #f0f;
+      text-shadow: 0 0 5px #f0f;
     }
-  }
-</style>
+
+    .section {
+      display: none;
+      max-width: 600px;
+      margin: auto;
+      padding: 0 20px 40px;
+      text-align: left;
+      font-size: 0.65em;
+      line-height: 1.6em;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .text-block {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #444;
+      padding: 15px 20px;
+      margin-bottom: 30px;
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: white;
+    }
+
+    .flag {
+      font-size: 1.6em;
+      line-height: 1;
+      user-select: none;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 22%, 24%, 55% { opacity: 0.4; }
+    }
+
+    @keyframes glitch {
+      0% { clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%); transform: translate(0); }
+      20% { clip-path: polygon(0 5%, 100% 3%, 100% 30%, 0 29%); transform: translate(-2px, 2px); }
+      40% { clip-path: polygon(0 1%, 100% 0%, 100% 32%, 0 33%); transform: translate(2px, -2px); }
+      60% { clip-path: polygon(0 4%, 100% 3%, 100% 29%, 0 28%); transform: translate(-1px, 1px); }
+      80%, 100% { clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%); transform: translate(0); }
+    }
+  </style>
 </head>
 <body>
   <h1 data-text="webslut">webslut</h1>
+
   <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Projects</a>
-    <a href="#">Contact</a>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('projects')">Projects</a>
+    <a onclick="showSection('contact')">Contact</a>
   </nav>
+
+  <!-- Home -->
+  <div id="home" class="section active">
+    <p>Welcome to my space.</p>
+  </div>
+
+  <!-- About -->
+  <div id="about" class="section">
+    <div class="text-block">
+      <div class="flag">🇺🇸</div>
+      <div>
+        <p>Hello slut, if you've come this far it means you're looking for attention and fun. Then I'll explain how things work.</p>
+        <p>I'm <b><i>rj_own</i></b> but you can call me RJ or master. My targets are always American, European and Brazilian piggys. So don't be afraid to send me messages, regardless of the language you'll be treated like a pigslut!</p>
+        <p>Some people do it for money or some other lucrative means, but guess what? I'm a fucking sadist who does it for fun. Watching you humiliate yourself is literally my hobby. 100% free.</p>
+        <p>Some of the whores love to be exposed, so I often advertise them in my links. This is always discussed beforehand, for example, if you want me to post it, if you don't it's just between us.</p>
+        <p>So don't waste time contacting me and remember, whenever you see “Plankton” you'll know that bloody <b><i>rj_own</i></b> was here!</p>
+      </div>
+    </div>
+
+    <div class="text-block">
+      <div class="flag">🇧🇷</div>
+      <div>
+        <p>Olá puta, se você chegou até aqui significa que está procurando atenção e diversão. Então vou te explicar como as coisas funcionam.</p>
+        <p>Eu sou o <b><i>rj_own</i></b> mas você pode me chamar de RJ ou mestre. Meus alvos sempre são porcas americanas, européias e brasileiras. Então não tenha medo de me mandar mensagens, independente do idioma você será tratada como uma puta porca!</p>
+        <p>Algumas pessoas fazem isso por dinheiro ou algum outro meio lucrativo, mas adivinha só... Eu sou a porra de um sádico que faz isso por diversão. Ver você se humilhar é literalmente meu hobbie. 100% grátis.</p>
+        <p>Algumas das putas amam ser expostas, então eu costumo divulgar elas em meus links. Isso é sempre discutido antes, por exemplo, se você quiser eu posto, se não quiser vai ficar só entre nós.</p>
+        <p>Então não perca tempo e entre em contato comigo e lembre-se, sempre que ver o "Plankton" você saberá que o maldito <b><i>rj_own</i></b> esteve aqui!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div id="projects" class="section">
+    <p>[Coming soon: portfolio, images, etc]</p>
+  </div>
+
+  <!-- Contact -->
+  <div id="contact" class="section">
+    <p>[Coming soon: links, social media, email]</p>
+  </div>
+
+  <!-- Script para alternar seções -->
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
