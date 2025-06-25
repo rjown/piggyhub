@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>webslut</title>
+  <title>Piggy's Playground</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -15,13 +15,15 @@
       text-align: center;
     }
 
+    /* Título principal com glitch */
     h1 {
       font-size: 2em;
       position: relative;
       color: white;
       text-transform: uppercase;
       animation: flicker 3s infinite;
-      margin: 40px 0 20px;
+      margin: 40px 0 5px;
+      font-family: 'Press Start 2P', monospace;
     }
 
     h1::before, h1::after {
@@ -41,6 +43,17 @@
       text-shadow: -2px 0 red;
       clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
       animation-delay: 1s;
+    }
+
+    /* Assinatura abaixo do título */
+    .signature {
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-style: italic;
+      font-weight: normal;
+      font-size: 0.85em;
+      color: #bbb;
+      margin-bottom: 30px;
+      user-select: none;
     }
 
     nav {
@@ -208,7 +221,8 @@
   </style>
 </head>
 <body>
-  <h1 data-text="webslut">webslut</h1>
+  <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
+  <div class="signature">by <i>rj_own</i></div>
 
   <nav>
     <a onclick="showSection('home')">Home</a>
