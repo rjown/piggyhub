@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>webslut.world</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      color: white;
-      font-family: monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-size: 3em;
-      text-transform: uppercase;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>webslut</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+  html, body {
+    margin: 0; padding: 0;
+    height: 100%;
+    background: black;
+    color: #0ff; /* azul ciano */
+    font-family: 'Press Start 2P', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  a {
+    color: #0ff;
+    text-decoration: none;
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 0.3em;
+    text-transform: uppercase;
+  }
+
+  /* efeito piscante simples */
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
     }
-    a {
-      color: white;
-      text-decoration: none;
+    20%, 22%, 24%, 55% {
+      opacity: 0.4;
     }
-  </style>
+  }
+  h1, a {
+    animation: flicker 3s infinite;
+  }
+</style>
 </head>
 <body>
-  <a href="#">webslut</a>
+  <div>
+    <h1><a href="#">webslut</a></h1>
+    <a href="https://webslut.world" target="_blank" rel="noopener">Visit original</a>
+  </div>
 </body>
 </html>
