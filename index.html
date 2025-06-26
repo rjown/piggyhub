@@ -5,191 +5,178 @@
   <title>Piggy's Playground</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #222 0%, #000 70%);
+  font-family: 'Press Start 2P', monospace;
+  color: white;
+  text-align: center;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(circle at center, #222 0%, #000 70%);
-      font-family: 'Press Start 2P', monospace;
-      color: white;
-      text-align: center;
-    }
+h1 {
+  font-size: 2em;
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+  animation: flicker 3s infinite;
+  margin: 40px 0 5px;
+}
 
-    h1 {
-      font-size: 2em;
-      position: relative;
-      color: white;
-      text-transform: uppercase;
-      animation: flicker 3s infinite;
-      margin: 40px 0 5px;
-    }
+.subtitle {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 0.6em;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: #ccc;
+}
 
-    .subtitle {
-      font-family: 'Arial Black', sans-serif;
-      font-size: 0.6em;
-      font-style: italic;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
+h1::before, h1::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  opacity: 0.8;
+  color: #f0f;
+  background: black;
+  clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
+  animation: glitch 2s infinite linear alternate-reverse;
+}
 
-    h1::before, h1::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      opacity: 0.8;
-      color: #0f0;
-      background: black;
-      clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
-      animation: glitch 2s infinite linear alternate-reverse;
-    }
+h1::after {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
+  animation-delay: 1s;
+}
 
-    h1::after {
-      left: 2px;
-      text-shadow: -2px 0 #0f0;
-      clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
-      animation-delay: 1s;
-    }
+nav {
+  margin-bottom: 30px;
+}
 
-    nav {
-      margin-bottom: 30px;
-    }
+nav a {
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
 
-    nav a {
-      font-size: 1em;
-      color: white;
-      text-decoration: none;
-      display: block;
-      margin: 10px 0;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      position: relative;
-      transition: color 0.3s ease;
-    }
+nav a:hover {
+  color: #f0f;
+  text-shadow: 0 0 5px #f0f;
+}
 
-    nav a:hover {
-      color: #f0f;
-      text-shadow: 0 0 5px #f0f;
-    }
+.section {
+  display: none;
+  max-width: 600px;
+  margin: auto;
+  padding: 0 20px 40px;
+  text-align: left;
+  font-size: 0.75em;
+  line-height: 1.6em;
+}
 
-    /* Animação para mouse e toque */
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 100%;
-      height: 2px;
-      background-color: #f0f;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
-    }
+.active {
+  display: block;
+}
 
-    nav a:hover::after,
-    nav a:active::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
+.home-text {
+  font-family: 'Silkscreen', monospace;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 2px #f0f, 0 0 4px #ff0;
+  margin-bottom: 30px;
+}
 
-    .section {
-      display: none;
-      max-width: 600px;
-      margin: auto;
-      padding: 0 20px 40px;
-      text-align: left;
-      font-size: 0.75em;
-      line-height: 1.6em;
-    }
+.centered-image {
+  display: block;
+  margin: 30px auto 0;
+  max-width: 100%;
+  height: auto;
+}
 
-    .active {
-      display: block;
-    }
+.flag {
+  font-size: 2em;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-    .home-text {
-      font-family: 'Silkscreen', monospace;
-      font-size: 1.5em;
-      text-align: center;
-      color: white;
-      text-shadow: 0 0 2px #f0f, 0 0 4px #ff0;
-      margin-bottom: 30px;
-    }
+.text-block {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: white;
+}
 
-    .centered-image {
-      display: block;
-      margin: 30px auto 0;
-      max-width: 100%;
-      height: auto;
-    }
+.model-row {
+  margin-bottom: 40px;
+  text-align: center;
+}
 
-    .flag {
-      font-size: 2em;
-      display: block;
-      text-align: center;
-      margin-bottom: 10px;
-    }
+.model-row h3 {
+  margin-bottom: 10px;
+}
 
-    .text-block {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #444;
-      padding: 15px 20px;
-      margin-bottom: 30px;
-      border-radius: 6px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: white;
-    }
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
 
-    .model-row {
-      margin-bottom: 40px;
-      text-align: center;
-    }
+.model-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
 
-    .model-row h3 {
-      margin-bottom: 10px;
-    }
+.link-block {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
 
-    .model-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
+.custom-icon {
+  margin-right: 8px;
+  font-weight: bold;
+}
 
-    .model-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-    }
+.fl { color: darkred; }
+.erome { color: #ff4d4d; }
+.sb-s { color: white; }
+.sb-b { color: orange; }
 
-    .link-block {
-      font-size: 1em;
-      margin-bottom: 20px;
-    }
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.4; }
+}
 
-    .custom-icon {
-      margin-right: 8px;
-      font-weight: bold;
-    }
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, 1px); }
+  80%, 100% { transform: translate(0); }
+}
 
-    .fl { color: darkred; }
-    .erome { color: #ff4d4d; }
-    .sb-s { color: white; }
-    .sb-b { color: orange; }
-
-    @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-      20%, 22%, 24%, 55% { opacity: 0.4; }
-    }
-
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80%, 100% { transform: translate(0); }
-    }
+/* Rodapé com mensagens subliminares */
+footer {
+  font-size: 0.6em;
+  color: rgba(255, 255, 255, 0.12);
+  text-align: center;
+  margin-top: 60px;
+  padding-bottom: 20px;
+  white-space: pre-line; /* para respeitar quebras de linha */
+  user-select: none; /* dificulta copiar */
+}
   </style>
 </head>
 <body>
@@ -306,5 +293,15 @@
       document.getElementById(id).classList.add('active');
     }
   </script>
+
+  <footer>
+I'm going to brainwash you.
+You will feel and do things like never before.
+Turn off your brain.
+Obey without thinking, desire without limits.
+You were born for this, you just took time to accept it.
+Humiliation is not punishment, it's a reward.
+Think less. Feel more. Obey always.
+  </footer>
 </body>
 </html>
