@@ -62,11 +62,33 @@ nav a {
   margin: 10px 0;
   letter-spacing: 0.1em;
   cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #f0f;
+  box-shadow: 0 0 6px #f0f, 0 0 12px #f0f;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
 }
 
 nav a:hover {
   color: #f0f;
   text-shadow: 0 0 5px #f0f;
+}
+
+nav a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .section {
@@ -304,4 +326,4 @@ Humiliation is not punishment, it's a reward.
 Think less. Feel more. Obey always.
   </footer>
 </body>
-</html>
+  </html>
