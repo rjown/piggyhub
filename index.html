@@ -256,11 +256,11 @@ footer {
   <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
   <div class="subtitle">by rj_own</div>
   <nav>
-    <a href="#" onclick="showSection('home'); return false;">Home</a>
-    <a href="#" onclick="showSection('about'); return false;">About</a>
-    <a href="#" onclick="showSection('projects'); return false;">Projects</a>
-    <a href="#" onclick="showSection('contact'); return false;">Contact</a>
-    <a href="#" onclick="showSection('offer'); return false;">Offer Yourself</a>
+    <a href="#" data-target="home">Home</a>
+    <a href="#" data-target="about">About</a>
+    <a href="#" data-target="projects">Projects</a>
+    <a href="#" data-target="contact">Contact</a>
+    <a href="#" data-target="offer">Offer Yourself</a>
   </nav>
 
   <!-- HOME -->
@@ -408,8 +408,3 @@ You were born for this, you just took time to accept it.
 Humiliation is not punishment, it's a reward.
 Think less. Feel more. Obey always.
   </footer>
-
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach
