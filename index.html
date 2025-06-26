@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -155,97 +154,6 @@ nav a:hover {
 .sb-s { color: white; }
 .sb-b { color: orange; }
 
-form {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #444;
-  border-radius: 6px;
-  padding: 20px;
-  color: white;
-  font-family: 'Press Start 2P', monospace;
-}
-
-form label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.8em;
-}
-
-form select,
-form textarea,
-form input[type="text"] {
-  width: 100%;
-  margin-top: 6px;
-  padding: 8px;
-  border-radius: 4px;
-  border: none;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.75em;
-}
-
-form textarea {
-  resize: vertical;
-  min-height: 60px;
-}
-
-form input[type="radio"] {
-  margin-right: 6px;
-  transform: scale(1.3);
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-form .radio-group {
-  margin-top: 6px;
-}
-
-form button {
-  margin-top: 20px;
-  background: #f0f;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  color: black;
-  font-weight: bold;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-}
-
-form button:hover {
-  background: #d400d4;
-  color: white;
-}
-
-#thank-you-message {
-  display: none;
-  font-size: 1em;
-  color: #f0f;
-  text-align: center;
-  margin-top: 20px;
-  font-style: italic;
-}
-
-.offer-intro {
-  font-style: italic;
-  margin-bottom: 15px;
-  text-align: center;
-  color: #ccc;
-}
-
-/* Rodapé com mensagens subliminares */
-footer {
-  font-size: 0.6em;
-  color: rgba(255, 255, 255, 0.12);
-  text-align: center;
-  margin-top: 60px;
-  padding-bottom: 20px;
-  white-space: pre-line; /* para respeitar quebras de linha */
-  user-select: none; /* dificulta copiar */
-}
-
 @keyframes flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
   20%, 22%, 24%, 55% { opacity: 0.4; }
@@ -257,6 +165,17 @@ footer {
   40% { transform: translate(2px, -2px); }
   60% { transform: translate(-1px, 1px); }
   80%, 100% { transform: translate(0); }
+}
+
+/* Rodapé com mensagens subliminares */
+footer {
+  font-size: 0.6em;
+  color: rgba(255, 255, 255, 0.12);
+  text-align: center;
+  margin-top: 60px;
+  padding-bottom: 20px;
+  white-space: pre-line; /* para respeitar quebras de linha */
+  user-select: none; /* dificulta copiar */
 }
   </style>
 </head>
@@ -370,31 +289,26 @@ footer {
 
   <!-- OFFER YOURSELF -->
   <div id="offer-yourself" class="section">
-    <div class="offer-intro">
-      This is not a form. This is your confession. Once you submit, there’s no going back.
-    </div>
-    <form id="offerForm" onsubmit="handleSubmit(event)">
-      <label for="nickname">What should I call you?</label>
+    <form action="https://formsubmit.co/masterrjown@gmail.com" method="POST">
+      <label for="nickname">What should I call you?</label><br>
       <select id="nickname" name="nickname" required>
         <option value="" disabled selected>Select an option</option>
         <option value="Pig">Pig</option>
         <option value="Fat">Fat</option>
         <option value="Cow">Cow</option>
         <option value="Slut">Slut</option>
-      </select>
+      </select><br><br>
 
-      <label for="limits">Limits</label>
-      <textarea id="limits" name="limits" placeholder="Write your limits here..." required></textarea>
+      <label for="limits">Limits</label><br>
+      <textarea id="limits" name="limits" placeholder="Write your limits here..." required></textarea><br><br>
 
-      <label>Want to be exposed?</label>
-      <div class="radio-group">
-        <input type="radio" id="exposed-yes" name="exposed" value="Yes" required>
-        <label for="exposed-yes" style="display:inline; text-transform:none; font-weight:normal;">Yes</label>
-        <input type="radio" id="exposed-no" name="exposed" value="No" required>
-        <label for="exposed-no" style="display:inline; text-transform:none; font-weight:normal;">No</label>
-      </div>
+      <label>Want to be exposed?</label><br>
+      <input type="radio" id="exposed-yes" name="exposed" value="Yes" required>
+      <label for="exposed-yes" style="display:inline; font-weight:normal;">Yes</label>
+      <input type="radio" id="exposed-no" name="exposed" value="No" required>
+      <label for="exposed-no" style="display:inline; font-weight:normal;">No</label><br><br>
 
-      <label for="contact-method">Where should I text you?</label>
+      <label for="contact-method">Where should I text you?</label><br>
       <select id="contact-method" name="contact-method" required>
         <option value="" disabled selected>Select a platform</option>
         <option value="Telegram">Telegram</option>
@@ -402,34 +316,20 @@ footer {
         <option value="Reddit">Reddit</option>
         <option value="Kik">Kik</option>
         <option value="Snapchat">Snapchat</option>
-      </select>
+      </select><br><br>
 
-      <label for="contact-username">Your username</label>
-      <input type="text" id="contact-username" name="contact-username" placeholder="Your username here..." required>
+      <label for="contact-username">Your username</label><br>
+      <input type="text" id="contact-username" name="contact-username" placeholder="Your username here..." required><br><br>
 
       <button type="submit">Submit Yourself</button>
     </form>
-    <div id="thank-you-message"></div>
   </div>
 
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll('.section');
       sections.forEach(sec => sec.classList.remove('active'));
-      const target = document.getElementById(id);
-      if(target) {
-        target.classList.add('active');
-      }
-    }
-
-    function handleSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const thankYou = document.getElementById('thank-you-message');
-
-      form.style.display = 'none';
-      thankYou.textContent = 'Thank you for offering yourself. I will contact you soon.';
-      thankYou.style.display = 'block';
+      document.getElementById(id).classList.add('active');
     }
   </script>
 
