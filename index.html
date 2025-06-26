@@ -256,11 +256,11 @@ footer {
   <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
   <div class="subtitle">by rj_own</div>
   <nav>
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('projects')">Projects</a>
-    <a onclick="showSection('contact')">Contact</a>
-    <a onclick="showSection('offer')">Offer Yourself</a>
+    <a href="#" onclick="showSection('home'); return false;">Home</a>
+    <a href="#" onclick="showSection('about'); return false;">About</a>
+    <a href="#" onclick="showSection('projects'); return false;">Projects</a>
+    <a href="#" onclick="showSection('contact'); return false;">Contact</a>
+    <a href="#" onclick="showSection('offer'); return false;">Offer Yourself</a>
   </nav>
 
   <!-- HOME -->
@@ -412,11 +412,4 @@ Think less. Feel more. Obey always.
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll('.section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-
-    document.getElementById('offerForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      emailjs.sendForm('service_b59mnv7', 'template_g2uw
+      sections.forEach
