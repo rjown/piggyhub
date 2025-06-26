@@ -6,289 +6,243 @@
   <title>Piggy's Playground</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');
-    body {
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(circle at center, #222 0%, #000 70%);
-      font-family: 'Press Start 2P', monospace;
-      color: white;
-      text-align: center;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #222 0%, #000 70%);
+  font-family: 'Press Start 2P', monospace;
+  color: white;
+  text-align: center;
+}
 
-    h1 {
-      font-size: 2em;
-      position: relative;
-      color: white;
-      text-transform: uppercase;
-      animation: flicker 3s infinite;
-      margin: 40px 0 5px;
-    }
+h1 {
+  font-size: 2em;
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+  animation: flicker 3s infinite;
+  margin: 40px 0 5px;
+}
 
-    .subtitle {
-      font-family: 'Arial Black', sans-serif;
-      font-size: 0.6em;
-      font-style: italic;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
+.subtitle {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 0.6em;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: #ccc;
+}
 
-    h1::before, h1::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      opacity: 0.8;
-      color: #f0f;
-      background: black;
-      clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
-      animation: glitch 2s infinite linear alternate-reverse;
-    }
+h1::before, h1::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  opacity: 0.8;
+  color: #f0f;
+  background: black;
+  clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
+  animation: glitch 2s infinite linear alternate-reverse;
+}
 
-    h1::after {
-      left: 2px;
-      text-shadow: -2px 0 red;
-      clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
-      animation-delay: 1s;
-    }
+h1::after {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
+  animation-delay: 1s;
+}
 
-    nav {
-      margin-bottom: 30px;
-    }
+nav {
+  margin-bottom: 30px;
+}
 
-    nav a {
-      font-size: 1em;
-      color: white;
-      text-decoration: none;
-      display: block;
-      margin: 10px 0;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-    }
+nav a {
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
 
-    nav a:hover {
-      color: #f0f;
-      text-shadow: 0 0 5px #f0f;
-    }
+nav a:hover {
+  color: #f0f;
+  text-shadow: 0 0 5px #f0f;
+}
 
-    .section {
-      display: none;
-      max-width: 600px;
-      margin: auto;
-      padding: 0 20px 40px;
-      text-align: left;
-      font-size: 0.75em;
-      line-height: 1.6em;
-    }
+.section {
+  display: none;
+  max-width: 600px;
+  margin: auto;
+  padding: 0 20px 40px;
+  text-align: left;
+  font-size: 0.75em;
+  line-height: 1.6em;
+}
 
-    .active {
-      display: block;
-    }
+.active {
+  display: block;
+}
 
-    .home-text {
-      font-family: 'Silkscreen', monospace;
-      font-size: 1.5em;
-      text-align: center;
-      color: white;
-      text-shadow: 0 0 2px #f0f, 0 0 4px #ff0;
-      margin-bottom: 30px;
-    }
+.home-text {
+  font-family: 'Silkscreen', monospace;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 2px #f0f, 0 0 4px #ff0;
+  margin-bottom: 30px;
+}
 
-    .centered-image {
-      display: block;
-      margin: 30px auto 0;
-      max-width: 100%;
-      height: auto;
-    }
+.centered-image {
+  display: block;
+  margin: 30px auto 0;
+  max-width: 100%;
+  height: auto;
+}
 
-    .flag {
-      font-size: 2em;
-      display: block;
-      text-align: center;
-      margin-bottom: 10px;
-    }
+.flag {
+  font-size: 2em;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-    .text-block {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #444;
-      padding: 15px 20px;
-      margin-bottom: 30px;
-      border-radius: 6px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: white;
-    }
+.text-block {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: white;
+}
 
-    .model-row {
-      margin-bottom: 40px;
-      text-align: center;
-    }
+.model-row {
+  margin-bottom: 40px;
+  text-align: center;
+}
 
-    .model-row h3 {
-      margin-bottom: 10px;
-    }
+.model-row h3 {
+  margin-bottom: 10px;
+}
 
-    .model-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
 
-    .model-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-    }
+.model-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
 
-    .link-block {
-      font-size: 1em;
-      margin-bottom: 20px;
-    }
+.link-block {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
 
-    .custom-icon {
-      margin-right: 8px;
-      font-weight: bold;
-    }
+.custom-icon {
+  margin-right: 8px;
+  font-weight: bold;
+}
 
-    .fl { color: darkred; }
-    .erome { color: #ff4d4d; }
-    .sb-s { color: white; }
-    .sb-b { color: orange; }
+.fl { color: darkred; }
+.erome { color: #ff4d4d; }
+.sb-s { color: white; }
+.sb-b { color: orange; }
 
-    @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-      20%, 22%, 24%, 55% { opacity: 0.4; }
-    }
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.4; }
+}
 
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80%, 100% { transform: translate(0); }
-    }
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, 1px); }
+  80%, 100% { transform: translate(0); }
+}
 
-    /* Rodapé atualizado */
-    footer {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.7em;
-      color: #aaa;
-      text-align: center;
-      margin-top: 60px;
-      padding-bottom: 20px;
-      white-space: pre-line;
-      user-select: none;
-    }
+/* Rodapé com mensagens subliminares */
+footer {
+  font-size: 0.6em;
+  color: rgba(255, 255, 255, 0.12);
+  text-align: center;
+  margin-top: 60px;
+  padding-bottom: 20px;
+  white-space: pre-line; /* para respeitar quebras de linha */
+  user-select: none; /* dificulta copiar */
+  font-family: Arial, sans-serif;
+  text-shadow: none;
+}
 
-    /* ===== Atualizações para o Offer Yourself ===== */
-    #offerForm {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #111;
-      padding: 20px;
-      border-radius: 10px;
-      border: 2px solid #c64fff;
-      box-shadow:
-        0 0 5px #c64fff,
-        0 0 8px #e676ff,
-        inset 0 0 5px #c64fff;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      color: white;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.8em;
-      user-select: text;
-    }
+/* Formulário Offer Yourself - neon suavizado */
+#offer form {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #551155;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  margin: 30px auto;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.1), 0 0 20px rgba(255, 0, 255, 0.05);
+}
 
-    #offerForm label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: bold;
-      color: #e676ff;
-      text-shadow:
-        0 0 3px #e676ff,
-        0 0 6px #c64fff;
-    }
+#offer label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 0.75em;
+  color: #ddd;
+  text-align: left;
+}
 
-    #offerForm label .icon {
-      font-size: 1.8em;
-      display: inline-block;
-      width: 30px;
-      text-align: center;
-      user-select: none;
-    }
+#offer .icon {
+  display: inline-block;
+  margin-right: 6px;
+}
 
-    #offerForm select,
-    #offerForm textarea,
-    #offerForm input[type="text"] {
-      background: transparent;
-      border: 2px solid #c64fff;
-      border-radius: 6px;
-      color: white;
-      padding: 10px;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.9em;
-      box-shadow:
-        0 0 3px #c64fff;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
+#offer input, #offer select, #offer textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #111;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.75em;
+  outline: none;
+  transition: 0.3s ease;
+}
 
-    #offerForm select:focus,
-    #offerForm textarea:focus,
-    #offerForm input[type="text"]:focus {
-      outline: none;
-      border-color: #e676ff;
-      box-shadow:
-        0 0 6px #e676ff,
-        0 0 12px #c64fff;
-      background: #220022;
-    }
+#offer input:focus, #offer select:focus, #offer textarea:focus {
+  border-color: #cc66ff;
+  box-shadow: 0 0 4px #cc66ff;
+}
 
-    #offerForm textarea {
-      resize: vertical;
-      min-height: 60px;
-    }
+#offer button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #cc33cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Silkscreen', monospace;
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(204, 51, 204, 0.3);
+}
 
-    #offerForm button {
-      background: linear-gradient(45deg, #c64fff, #e676ff, #c64fff);
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1em;
-      padding: 12px 20px;
-      cursor: pointer;
-      box-shadow:
-        0 0 6px #c64fff,
-        0 0 12px #e676ff;
-      animation: neonGlow 2.5s ease-in-out infinite alternate;
-      transition: box-shadow 0.3s ease;
-      user-select: none;
-    }
-
-    #offerForm button:hover {
-      box-shadow:
-        0 0 12px #e676ff,
-        0 0 18px #c64fff,
-        0 0 24px #e676ff;
-    }
-
-    @keyframes neonGlow {
-      from {
-        box-shadow:
-          0 0 6px #c64fff,
-          0 0 12px #e676ff;
-      }
-      to {
-        box-shadow:
-          0 0 12px #e676ff,
-          0 0 24px #c64fff;
-      }
-    }
-
+#offer button:hover {
+  background: #ff66ff;
+  box-shadow: 0 0 15px rgba(255, 102, 255, 0.4), 0 0 25px rgba(255, 102, 255, 0.2);
+}
   </style>
 
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -343,7 +297,7 @@
         <p>Então não perca tempo e entre em contato comigo e lembre-se, sempre que ver o "Plankton" você saberá que o maldito <b><i>rj_own</i></b> esteve aqui!</p>
       </div>
     </div>
-  </div>
+    </div>
 
   <!-- PROJECTS -->
   <div id="projects" class="section">
@@ -380,6 +334,7 @@
       </div>
     </div>
   </div>
+
   <!-- CONTACT -->
   <div id="contact" class="section">
     <div class="link-block">
@@ -464,15 +419,4 @@ Think less. Feel more. Obey always.
     document.getElementById('offerForm').addEventListener('submit', function (event) {
       event.preventDefault();
 
-      emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
-        .then(function () {
-          alert('Form sent successfully!');
-          document.getElementById('offerForm').reset();
-        }, function (error) {
-          alert('Failed to send form. Please try again.');
-          console.error('Error sending form:', error);
-        });
-    });
-  </script>
-</body>
-</html>
+      emailjs.sendForm('service_b59mnv7', 'template_g2uw
