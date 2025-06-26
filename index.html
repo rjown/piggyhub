@@ -6,228 +6,258 @@
   <title>Piggy's Playground</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');
-    body {
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(circle at center, #222 0%, #000 70%);
-      font-family: 'Press Start 2P', monospace;
-      color: white;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2em;
-      position: relative;
-      color: white;
-      text-transform: uppercase;
-      animation: flicker 3s infinite;
-      margin: 40px 0 5px;
-    }
-    .subtitle {
-      font-family: 'Arial Black', sans-serif;
-      font-size: 0.6em;
-      font-style: italic;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
-    h1::before, h1::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      opacity: 0.8;
-      color: #f0f;
-      background: black;
-      clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
-      animation: glitch 2s infinite linear alternate-reverse;
-    }
-    h1::after {
-      left: 2px;
-      text-shadow: -2px 0 red;
-      clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
-      animation-delay: 1s;
-    }
-    nav {
-      margin-bottom: 30px;
-    }
-    nav a {
-      font-size: 1em;
-      color: white;
-      text-decoration: none;
-      display: block;
-      margin: 10px 0;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    nav a:hover, nav a:focus {
-      color: #f0f;
-      text-shadow: 0 0 5px #f0f;
-      outline: none;
-    }
-    .section {
-      display: none;
-      max-width: 600px;
-      margin: auto;
-      padding: 0 20px 40px;
-      text-align: left;
-      font-size: 0.75em;
-      line-height: 1.6em;
-    }
-    .active {
-      display: block;
-    }
-    .home-text {
-      font-family: 'Silkscreen', monospace;
-      font-size: 1.5em;
-      text-align: center;
-      color: white;
-      text-shadow: 0 0 2px #f0f, 0 0 4px #ff0;
-      margin-bottom: 30px;
-    }
-    .centered-image {
-      display: block;
-      margin: 30px auto 0;
-      max-width: 100%;
-      height: auto;
-    }
-    .flag {
-      font-size: 2em;
-      display: block;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .text-block {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #444;
-      padding: 15px 20px;
-      margin-bottom: 30px;
-      border-radius: 6px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: white;
-    }
-    .model-row {
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .model-row h3 {
-      margin-bottom: 10px;
-    }
-    .model-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .model-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-    }
-    .link-block {
-      font-size: 1em;
-      margin-bottom: 20px;
-    }
-    .custom-icon {
-      margin-right: 8px;
-      font-weight: bold;
-    }
-    .fl { color: darkred; }
-    .erome { color: #ff4d4d; }
-    .sb-s { color: white; }
-    .sb-b { color: orange; }
-    @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-      20%, 22%, 24%, 55% { opacity: 0.4; }
-    }
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80%, 100% { transform: translate(0); }
-    }
-    /* Rodapé com mensagens subliminares */
-    footer {
-      font-size: 0.6em;
-      color: rgba(255, 255, 255, 0.12);
-      text-align: center;
-      margin-top: 60px;
-      padding-bottom: 20px;
-      white-space: pre-line;
-      user-select: none;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #222 0%, #000 70%);
+  font-family: 'Press Start 2P', monospace;
+  color: white;
+  text-align: center;
+}
 
-    /* FORMULÁRIO OFFER YOURSELF */
-    #offer-yourself-form {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #444;
-      padding: 20px;
-      border-radius: 6px;
-      color: white;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.75em;
-      max-width: 100%;
-    }
-    #offer-yourself-form label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 6px;
-      font-weight: bold;
-      color: #f0f;
-    }
-    #offer-yourself-form select,
-    #offer-yourself-form textarea,
-    #offer-yourself-form input[type="text"] {
-      width: 100%;
-      padding: 8px 10px;
-      border: 1px solid #666;
-      border-radius: 4px;
-      background: #111;
-      color: white;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.75em;
-      resize: vertical;
-    }
-    #offer-yourself-form textarea {
-      min-height: 80px;
-    }
-    #offer-yourself-form input[type="radio"] {
-      margin-right: 6px;
-      cursor: pointer;
-    }
-    #offer-yourself-form .radio-group {
-      display: flex;
-      gap: 20px;
-      margin-top: 6px;
-    }
-    #offer-yourself-form button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.75em;
-      color: #f0f;
-      background: transparent;
-      border: 2px solid #f0f;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-transform: uppercase;
-    }
-    #offer-yourself-form button:hover,
-    #offer-yourself-form button:focus {
-      background-color: #f0f;
-      color: black;
-      outline: none;
-    }
-    #thank-you-message {
-      margin-top: 20px;
-      font-size: 0.85em;
-      color: #ff0;
-      font-style: italic;
-      display: none;
-    }
+h1 {
+  font-size: 2em;
+  position: relative;
+  color: white;
+  text-transform: uppercase;
+  animation: flicker 3s infinite;
+  margin: 40px 0 5px;
+}
+
+.subtitle {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 0.6em;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+h1::before, h1::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  opacity: 0.8;
+  color: #f0f;
+  background: black;
+  clip-path: polygon(0 2%, 100% 0%, 100% 33%, 0 32%);
+  animation: glitch 2s infinite linear alternate-reverse;
+}
+
+h1::after {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  clip-path: polygon(0 65%, 100% 63%, 100% 100%, 0 100%);
+  animation-delay: 1s;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+
+nav a {
+  font-size: 1em;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: #f0f;
+  text-shadow: 0 0 5px #f0f;
+}
+
+.section {
+  display: none;
+  max-width: 600px;
+  margin: auto;
+  padding: 0 20px 40px;
+  text-align: left;
+  font-size: 0.75em;
+  line-height: 1.6em;
+}
+
+.active {
+  display: block;
+}
+
+.home-text {
+  font-family: 'Silkscreen', monospace;
+  font-size: 1.5em;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 2px #f0f, 0 0 4px #ff0;
+  margin-bottom: 30px;
+}
+
+.centered-image {
+  display: block;
+  margin: 30px auto 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.flag {
+  font-size: 2em;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.text-block {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: white;
+}
+
+.model-row {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.model-row h3 {
+  margin-bottom: 10px;
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.model-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.link-block {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.custom-icon {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.fl { color: darkred; }
+.erome { color: #ff4d4d; }
+.sb-s { color: white; }
+.sb-b { color: orange; }
+
+form {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 20px;
+  color: white;
+  font-family: 'Press Start 2P', monospace;
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+form select,
+form textarea,
+form input[type="text"] {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.75em;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+form input[type="radio"] {
+  margin-right: 6px;
+  transform: scale(1.3);
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+form .radio-group {
+  margin-top: 6px;
+}
+
+form button {
+  margin-top: 20px;
+  background: #f0f;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: black;
+  font-weight: bold;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+form button:hover {
+  background: #d400d4;
+  color: white;
+}
+
+#thank-you-message {
+  display: none;
+  font-size: 1em;
+  color: #f0f;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.offer-intro {
+  font-style: italic;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ccc;
+}
+
+/* Rodapé com mensagens subliminares */
+footer {
+  font-size: 0.6em;
+  color: rgba(255, 255, 255, 0.12);
+  text-align: center;
+  margin-top: 60px;
+  padding-bottom: 20px;
+  white-space: pre-line; /* para respeitar quebras de linha */
+  user-select: none; /* dificulta copiar */
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.4; }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, 1px); }
+  80%, 100% { transform: translate(0); }
+}
   </style>
 </head>
 <body>
@@ -282,33 +312,33 @@
     <div class="model-row">
       <h3>Fat Spicy</h3>
       <div class="model-grid">
-        <img src="images/modelo1_foto1.jpg" alt="">
-        <img src="images/modelo1_foto2.jpg" alt="">
-        <img src="images/modelo1_foto3.jpg" alt="">
+        <img src="images/modelo1_foto1.jpg">
+        <img src="images/modelo1_foto2.jpg">
+        <img src="images/modelo1_foto3.jpg">
       </div>
     </div>
     <div class="model-row">
       <h3>Piggy Melissa</h3>
       <div class="model-grid">
-        <img src="images/modelo2_foto1.jpg" alt="">
-        <img src="images/modelo2_foto2.jpg" alt="">
-        <img src="images/modelo2_foto3.jpg" alt="">
+        <img src="images/modelo2_foto1.jpg">
+        <img src="images/modelo2_foto2.jpg">
+        <img src="images/modelo2_foto3.jpg">
       </div>
     </div>
     <div class="model-row">
       <h3>Brainless Elisha</h3>
       <div class="model-grid">
-        <img src="images/modelo3_foto1.jpg" alt="">
-        <img src="images/modelo3_foto2.jpg" alt="">
-        <img src="images/modelo3_foto3.jpg" alt="">
+        <img src="images/modelo3_foto1.jpg">
+        <img src="images/modelo3_foto2.jpg">
+        <img src="images/modelo3_foto3.jpg">
       </div>
     </div>
     <div class="model-row">
       <h3>Lara, Brazilian pregnant slut</h3>
       <div class="model-grid">
-        <img src="images/modelo4_foto1.jpg" alt="">
-        <img src="images/modelo4_foto2.jpg" alt="">
-        <img src="images/modelo4_foto3.jpg" alt="">
+        <img src="images/modelo4_foto1.jpg">
+        <img src="images/modelo4_foto2.jpg">
+        <img src="images/modelo4_foto3.jpg">
       </div>
     </div>
   </div>
@@ -340,14 +370,13 @@
 
   <!-- OFFER YOURSELF -->
   <div id="offer-yourself" class="section">
-    <p style="font-style: italic; color: #ff0; text-align: center; margin-bottom: 20px;">
-      This is not a form. This is your confession.<br>
-      Once you submit, there’s no going back.
-    </p>
-    <form id="offer-yourself-form" onsubmit="handleSubmit(event)">
+    <div class="offer-intro">
+      This is not a form. This is your confession. Once you submit, there’s no going back.
+    </div>
+    <form id="offerForm" onsubmit="handleSubmit(event)">
       <label for="nickname">What should I call you?</label>
       <select id="nickname" name="nickname" required>
-        <option value="" disabled selected>Select one</option>
+        <option value="" disabled selected>Select an option</option>
         <option value="Pig">Pig</option>
         <option value="Fat">Fat</option>
         <option value="Cow">Cow</option>
@@ -358,14 +387,16 @@
       <textarea id="limits" name="limits" placeholder="Write your limits here..." required></textarea>
 
       <label>Want to be exposed?</label>
-      <div class="radio-group" role="radiogroup" aria-labelledby="exposed-label">
-        <label><input type="radio" name="exposed" value="Yes" required> Yes</label>
-        <label><input type="radio" name="exposed" value="No" required> No</label>
+      <div class="radio-group">
+        <input type="radio" id="exposed-yes" name="exposed" value="Yes" required>
+        <label for="exposed-yes" style="display:inline; text-transform:none; font-weight:normal;">Yes</label>
+        <input type="radio" id="exposed-no" name="exposed" value="No" required>
+        <label for="exposed-no" style="display:inline; text-transform:none; font-weight:normal;">No</label>
       </div>
 
-      <label for="contact-platform">Where should I text you?</label>
-      <select id="contact-platform" name="contact-platform" required>
-        <option value="" disabled selected>Select one</option>
+      <label for="contact-method">Where should I text you?</label>
+      <select id="contact-method" name="contact-method" required>
+        <option value="" disabled selected>Select a platform</option>
         <option value="Telegram">Telegram</option>
         <option value="Instagram">Instagram</option>
         <option value="Reddit">Reddit</option>
@@ -373,22 +404,43 @@
         <option value="Snapchat">Snapchat</option>
       </select>
 
-      <label for="contact-nick">Your username</label>
-      <input type="text" id="contact-nick" name="contact-nick" placeholder="Enter your username" required>
+      <label for="contact-username">Your username</label>
+      <input type="text" id="contact-username" name="contact-username" placeholder="Your username here..." required>
 
       <button type="submit">Submit Yourself</button>
     </form>
-    <div id="thank-you-message" role="alert" aria-live="polite"></div>
+    <div id="thank-you-message"></div>
   </div>
 
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll('.section');
       sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+      const target = document.getElementById(id);
+      if(target) {
+        target.classList.add('active');
+      }
     }
+
     function handleSubmit(event) {
       event.preventDefault();
       const form = event.target;
       const thankYou = document.getElementById('thank-you-message');
-      thankYou
+
+      form.style.display = 'none';
+      thankYou.textContent = 'Thank you for offering yourself. I will contact you soon.';
+      thankYou.style.display = 'block';
+    }
+  </script>
+
+  <footer>
+I'm going to brainwash you.
+You will feel and do things like never before.
+Turn off your brain.
+Obey without thinking, desire without limits.
+You were born for this, you just took time to accept it.
+Humiliation is not punishment, it's a reward.
+Think less. Feel more. Obey always.
+  </footer>
+</body>
+</html>
