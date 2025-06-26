@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Piggy's Playground</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');
-
     body {
       margin: 0;
       padding: 0;
@@ -170,84 +169,128 @@
       80%, 100% { transform: translate(0); }
     }
 
-    /* Rodapé com mensagens subliminares */
+    /* Rodapé atualizado */
     footer {
-      font-size: 0.6em;
-      color: rgba(255, 255, 255, 0.12);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.7em;
+      color: #aaa;
       text-align: center;
       margin-top: 60px;
       padding-bottom: 20px;
       white-space: pre-line;
       user-select: none;
-      font-family: Arial, sans-serif;
-      text-shadow: none;
     }
 
-    /* Formulário Offer Yourself - neon suavizado */
-    #offer form {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid #551155;
+    /* ===== Neon suavizado no Offer Yourself ===== */
+    #offerForm {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #111;
       padding: 20px;
       border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
-      margin: 30px auto;
-      box-shadow: 0 0 10px rgba(255, 0, 255, 0.1), 0 0 20px rgba(255, 0, 255, 0.05);
-    }
-
-    #offer label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 5px;
-      font-size: 0.75em;
-      color: #ddd;
-      text-align: left;
-    }
-
-    #offer .icon {
-      display: inline-block;
-      margin-right: 6px;
-    }
-
-    #offer input, #offer select, #offer textarea {
-      width: 100%;
-      padding: 10px;
-      background-color: #111;
-      border: 1px solid #333;
-      color: #fff;
-      border-radius: 4px;
-      font-size: 0.75em;
-      outline: none;
-      transition: 0.3s ease;
-    }
-
-    #offer input:focus, #offer select:focus, #offer textarea:focus {
-      border-color: #cc66ff;
-      box-shadow: 0 0 4px #cc66ff;
-    }
-
-    #offer button {
-      margin-top: 20px;
-      width: 100%;
-      padding: 12px;
-      background: #cc33cc;
+      border: 1.5px solid #a66bc1;
+      box-shadow:
+        0 0 3px #a66bc1,
+        0 0 5px #b47fd7,
+        inset 0 0 3px #a66bc1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       color: white;
-      border: none;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.8em;
+      user-select: text;
+    }
+
+    #offerForm label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: #b47fd7;
+      text-shadow:
+        0 0 1.5px #b47fd7,
+        0 0 3px #a66bc1;
+    }
+
+    #offerForm label .icon {
+      font-size: 1.8em;
+      display: inline-block;
+      width: 30px;
+      text-align: center;
+      user-select: none;
+    }
+
+    #offerForm select,
+    #offerForm textarea,
+    #offerForm input[type="text"] {
+      background: transparent;
+      border: 1.5px solid #a66bc1;
       border-radius: 6px;
-      font-family: 'Silkscreen', monospace;
+      color: white;
+      padding: 10px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.9em;
+      box-shadow:
+        0 0 1.5px #a66bc1;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #offerForm select:focus,
+    #offerForm textarea:focus,
+    #offerForm input[type="text"]:focus {
+      outline: none;
+      border-color: #b47fd7;
+      box-shadow:
+        0 0 3px #b47fd7,
+        0 0 6px #a66bc1;
+      background: #220022;
+    }
+
+    #offerForm textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    #offerForm button {
+      background: linear-gradient(45deg, #a66bc1, #b47fd7, #a66bc1);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1em;
+      padding: 12px 20px;
       cursor: pointer;
-      font-size: 0.85em;
-      transition: background 0.3s, box-shadow 0.3s;
-      box-shadow: 0 0 10px rgba(204, 51, 204, 0.3);
+      box-shadow:
+        0 0 3px #a66bc1,
+        0 0 6px #b47fd7;
+      animation: neonGlow 2.5s ease-in-out infinite alternate;
+      transition: box-shadow 0.3s ease;
+      user-select: none;
     }
 
-    #offer button:hover {
-      background: #ff66ff;
-      box-shadow: 0 0 15px rgba(255, 102, 255, 0.4), 0 0 25px rgba(255, 102, 255, 0.2);
+    #offerForm button:hover {
+      box-shadow:
+        0 0 6px #b47fd7,
+        0 0 9px #a66bc1,
+        0 0 12px #b47fd7;
     }
-  </style>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    @keyframes neonGlow {
+      from {
+        box-shadow:
+          0 0 3px #a66bc1,
+          0 0 6px #b47fd7;
+      }
+      to {
+        box-shadow:
+          0 0 6px #b47fd7,
+          0 0 12px #a66bc1;
+      }
+    }
+
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     (function () {
       emailjs.init("zPqYpeD99BQa1yXzj");
@@ -257,13 +300,12 @@
 <body>
   <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
   <div class="subtitle">by rj_own</div>
-
   <nav>
-    <a href="#" data-target="home">Home</a>
-    <a href="#" data-target="about">About</a>
-    <a href="#" data-target="projects">Projects</a>
-    <a href="#" data-target="contact">Contact</a>
-    <a href="#" data-target="offer">Offer Yourself</a>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('projects')">Projects</a>
+    <a onclick="showSection('contact')">Contact</a>
+    <a onclick="showSection('offer')">Offer Yourself</a>
   </nav>
 
   <!-- HOME -->
@@ -271,11 +313,11 @@
     <div class="home-text">
       <div class="flag">🇺🇸</div>
       <p>Become a whore, join the army of pigs without dignity. Turn off your brain and let your desires speak louder 😵‍💫.</p>
-      <br />
+      <br>
       <div class="flag">🇧🇷</div>
       <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
     </div>
-    <img src="images/plankton_home.jpg" alt="Plankton" class="centered-image" />
+    <img src="images/plankton_home.jpg" alt="Plankton" class="centered-image">
   </div>
 
   <!-- ABOUT -->
@@ -299,64 +341,66 @@
         <p>Algumas das putas amam ser expostas, então eu costumo divulgar elas em meus links. Isso é sempre discutido antes, por exemplo, se você quiser eu posto, se não quiser vai ficar só entre nós.</p>
         <p>Então não perca tempo e entre em contato comigo e lembre-se, sempre que ver o "Plankton" você saberá que o maldito <b><i>rj_own</i></b> esteve aqui!</p>
       </div>
-      <!-- PROJECTS -->
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
   <div id="projects" class="section">
     <div class="model-row">
       <h3>Fat Spicy</h3>
       <div class="model-grid">
-        <img src="images/modelo1_foto1.jpg" alt="Fat Spicy foto 1" />
-        <img src="images/modelo1_foto2.jpg" alt="Fat Spicy foto 2" />
-        <img src="images/modelo1_foto3.jpg" alt="Fat Spicy foto 3" />
+        <img src="images/modelo1_foto1.jpg">
+        <img src="images/modelo1_foto2.jpg">
+        <img src="images/modelo1_foto3.jpg">
       </div>
     </div>
     <div class="model-row">
       <h3>Piggy Melissa</h3>
       <div class="model-grid">
-        <img src="images/modelo2_foto1.jpg" alt="Piggy Melissa foto 1" />
-        <img src="images/modelo2_foto2.jpg" alt="Piggy Melissa foto 2" />
-        <img src="images/modelo2_foto3.jpg" alt="Piggy Melissa foto 3" />
+        <img src="images/modelo2_foto1.jpg">
+        <img src="images/modelo2_foto2.jpg">
+        <img src="images/modelo2_foto3.jpg">
       </div>
     </div>
     <div class="model-row">
       <h3>Brainless Elisha</h3>
       <div class="model-grid">
-        <img src="images/modelo3_foto1.jpg" alt="Brainless Elisha foto 1" />
-        <img src="images/modelo3_foto2.jpg" alt="Brainless Elisha foto 2" />
-        <img src="images/modelo3_foto3.jpg" alt="Brainless Elisha foto 3" />
+        <img src="images/modelo3_foto1.jpg">
+        <img src="images/modelo3_foto2.jpg">
+        <img src="images/modelo3_foto3.jpg">
       </div>
     </div>
     <div class="model-row">
       <h3>Lara, Brazilian pregnant slut</h3>
       <div class="model-grid">
-        <img src="images/modelo4_foto1.jpg" alt="Lara foto 1" />
-        <img src="images/modelo4_foto2.jpg" alt="Lara foto 2" />
-        <img src="images/modelo4_foto3.jpg" alt="Lara foto 3" />
+        <img src="images/modelo4_foto1.jpg">
+        <img src="images/modelo4_foto2.jpg">
+        <img src="images/modelo4_foto3.jpg">
       </div>
     </div>
   </div>
-
   <!-- CONTACT -->
   <div id="contact" class="section">
     <div class="link-block">
-      <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_own" target="_blank" rel="noopener noreferrer">t.me/rj_own</a>
+      <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_own" target="_blank">t.me/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon erome">E</span> - <a href="https://www.erome.com/rj_own" target="_blank" rel="noopener noreferrer">erome.com/rj_own</a>
+      <span class="custom-icon erome">E</span> - <a href="https://www.erome.com/rj_own" target="_blank">erome.com/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon fl">FL</span> - <a href="https://fetlife.com/rj_own" target="_blank" rel="noopener noreferrer">fetlife.com/rj_own</a>
+      <span class="custom-icon fl">FL</span> - <a href="https://fetlife.com/rj_own" target="_blank">fetlife.com/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon"><span class="sb-s">S</span><span class="sb-b">B</span></span> - <a href="https://sltb.live/user/rj_own/" target="_blank" rel="noopener noreferrer">sltb.live/user/rj_own</a>
+      <span class="custom-icon"><span class="sb-s">S</span><span class="sb-b">B</span></span> - <a href="https://sltb.live/user/rj_own/" target="_blank">sltb.live/user/rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fab fa-instagram"></i> - <a href="https://www.instagram.com/rj_own?igsh=MTg1Zm9xOGk4YjJuaw==" target="_blank" rel="noopener noreferrer">@rj_own</a>
+      <i class="fab fa-instagram"></i> - <a href="https://www.instagram.com/rj_own?igsh=MTg1Zm9xOGk4YjJuaw==" target="_blank">@rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fab fa-snapchat-ghost"></i> - <a href="https://www.snapchat.com/add/rj_own" target="_blank" rel="noopener noreferrer">snapchat.com/add/rj_own</a>
+      <i class="fab fa-snapchat-ghost"></i> - <a href="https://www.snapchat.com/add/rj_own" target="_blank">snapchat.com/add/rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
+      <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank">kik.me/rj_own</a>
     </div>
   </div>
 
@@ -375,7 +419,7 @@
       <label for="limits"><span class="icon">❌</span> Limits:</label>
       <textarea id="limits" name="limits" rows="3" placeholder="Write your limits here..." required></textarea>
 
-      <label for="expose"><span class="icon">📱</span> Want to be exposed:</label>
+      <label for="expose"><span class="icon">🌐</span> Want to be exposed:</label>
       <select name="expose" id="expose" required>
         <option value="">--Select--</option>
         <option value="Yes">Yes</option>
@@ -393,48 +437,13 @@
       </select>
 
       <label for="nickname">Your nickname:</label>
-      <input type="text" id="nickname" name="nickname" placeholder="Enter your nickname" required />
+      <input type="text" id="nickname" name="nickname" placeholder="Enter your nickname" required>
 
       <button type="submit">Become a Slut</button>
     </form>
   </div>
 
-  <script>
-    // Troca de seção ao clicar no menu, sem recarregar página
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('data-target');
-        if (!targetId) return;
-
-        document.querySelectorAll('.section').forEach(section => {
-          section.classList.remove('active');
-        });
-
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.classList.add('active');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Envio do formulário via EmailJS
-    document.getElementById('offerForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
-        .then(function() {
-          alert('Form sent successfully!');
-          document.getElementById('offerForm').reset();
-        }, function(error) {
-          alert('Failed to send form. Please try again.');
-          console.error('Error sending form:', error);
-        });
-    });
-  </script>
-    </div>
-    <footer>
+  <footer>
 I'm going to brainwash you.
 You will feel and do things like never before.
 Turn off your brain.
@@ -443,5 +452,26 @@ You were born for this, you just took time to accept it.
 Humiliation is not punishment, it's a reward.
 Think less. Feel more. Obey always.
   </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    document.getElementById('offerForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
+        .then(function () {
+          alert('Form sent successfully!');
+          document.getElementById('offerForm').reset();
+        }, function (error) {
+          alert('Failed to send form. Please try again.');
+          console.error('Error sending form:', error);
+        });
+    });
+  </script>
 </body>
 </html>
