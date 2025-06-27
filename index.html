@@ -6,8 +6,7 @@
   <title>Piggy's Playground</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');
     body {
       margin: 0;
       padding: 0;
@@ -17,36 +16,30 @@
       text-align: center;
     }
 
+    /* Foto de perfil plankton centralizada acima do título */
+    #profile-pic {
+      display: block;
+      margin: 20px auto 10px auto;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #a66bc1;
+      box-shadow: 0 0 8px #a66bc1;
+    }
+
     h1 {
       font-size: 2em;
       position: relative;
       color: white;
       text-transform: uppercase;
-      margin: 40px 0 5px;
-      z-index: 2;
+      animation: flicker 3s infinite;
+      margin: 10px 0 5px;
+      font-family: 'Share Tech Mono', monospace;
+      z-index: 1;
     }
 
-    .profile-pic {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 1px solid #fff;
-    }
-
-    .subtitle {
-      font-size: 0.6em;
-      font-style: italic;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
-
-    nav {
-      margin-bottom: 30px;
-    }
-
+    /* Removido o menu Offer Yourself */
     nav a {
       font-size: 1em;
       color: white;
@@ -59,79 +52,67 @@
 
     nav a:hover {
       color: #f0f;
-      text-shadow: 0 0 2px #f0f;
+      text-shadow: 0 0 5px #f0f;
     }
 
-    .section {
-      display: none;
-      max-width: 600px;
-      margin: auto;
-      padding: 0 20px 40px;
-      text-align: left;
-      font-size: 0.75em;
-      line-height: 1.6em;
-    }
-
-    .active {
-      display: block;
-    }
-
-    .home-text {
-      font-size: 1.5em;
-      text-align: center;
+    /* Botão vermelho redondo "Offer Yourself" sobre o texto da Home */
+    #offer-button {
+      background: linear-gradient(45deg, #ff0000, #cc0000);
+      border: 2.5px solid #ff4444;
+      box-shadow:
+        0 0 12px #ff5555,
+        inset 0 0 8px #ff0000;
       color: white;
-      text-shadow: 0 0 1px #f0f, 0 0 2px #ff0;
-      margin-bottom: 30px;
-    }
-
-    .flag {
-      font-size: 2em;
-      display: block;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    /* Estilo botão redondo */
-    .offer-button-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 30px 0;
-    }
-
-    .emergency-button {
-      width: 80px;
-      height: 80px;
-      background: radial-gradient(circle, red, darkred);
-      border: 3px solid #fff;
+      font-family: 'Share Tech Mono', monospace;
+      font-weight: bold;
+      font-size: 1em;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-      transition: transform 0.2s ease;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      transition: box-shadow 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+    #offer-button:hover {
+      box-shadow:
+        0 0 20px #ff8888,
+        inset 0 0 12px #ff4444;
     }
 
-    .emergency-button:hover {
-      transform: scale(1.1);
-    }
-
-    .click-label {
-      margin-top: 5px;
-      font-size: 0.7em;
-      color: #ccc;
-    }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("zPqYpeD99BQa1yXzj");
+    })();
+  </script>
 </head>
 <body>
-  <img src="images/plankton_home.jpg" alt="Profile" class="profile-pic" loading="lazy" />
+  <!-- FOTO DE PERFIL CENTRALIZADA -->
+  <img id="profile-pic" src="images/plankton_home.jpg" alt="Plankton Profile Picture" loading="lazy">
+
   <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
+
   <div class="subtitle">by rj_own</div>
+
   <nav>
     <a onclick="showSection('home')">Home</a>
     <a onclick="showSection('about')">About</a>
     <a onclick="showSection('projects')">Projects</a>
     <a onclick="showSection('contact')">Contact</a>
-    <a onclick="showSection('offer')">Offer Yourself</a>
+    <!-- "Offer Yourself" removido do menu -->
   </nav>
+
+  <!-- BOTÃO VERMELHO "OFFER YOURSELF" -->
+  <div style="position: relative; z-index: 2;">
+    <button id="offer-button" onclick="showSection('offer')">Offer Yourself</button>
+  </div>
 
   <!-- HOME -->
   <div id="home" class="section active">
@@ -143,6 +124,7 @@
       <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
     </div>
   </div>
+
   <!-- ABOUT -->
   <div id="about" class="section">
     <div class="text-block">
@@ -172,33 +154,33 @@
     <div class="model-row">
       <h3>Fat Spicy</h3>
       <div class="model-grid">
-        <img src="images/modelo1_foto1.jpg" loading="lazy">
-        <img src="images/modelo1_foto2.jpg" loading="lazy">
-        <img src="images/modelo1_foto3.jpg" loading="lazy">
+        <img src="images/modelo1_foto1.jpg" loading="lazy" alt="Fat Spicy 1">
+        <img src="images/modelo1_foto2.jpg" loading="lazy" alt="Fat Spicy 2">
+        <img src="images/modelo1_foto3.jpg" loading="lazy" alt="Fat Spicy 3">
       </div>
     </div>
     <div class="model-row">
       <h3>Piggy Melissa</h3>
       <div class="model-grid">
-        <img src="images/modelo2_foto1.jpg" loading="lazy">
-        <img src="images/modelo2_foto2.jpg" loading="lazy">
-        <img src="images/modelo2_foto3.jpg" loading="lazy">
+        <img src="images/modelo2_foto1.jpg" loading="lazy" alt="Piggy Melissa 1">
+        <img src="images/modelo2_foto2.jpg" loading="lazy" alt="Piggy Melissa 2">
+        <img src="images/modelo2_foto3.jpg" loading="lazy" alt="Piggy Melissa 3">
       </div>
     </div>
     <div class="model-row">
       <h3>Brainless Elisha</h3>
       <div class="model-grid">
-        <img src="images/modelo3_foto1.jpg" loading="lazy">
-        <img src="images/modelo3_foto2.jpg" loading="lazy">
-        <img src="images/modelo3_foto3.jpg" loading="lazy">
+        <img src="images/modelo3_foto1.jpg" loading="lazy" alt="Brainless Elisha 1">
+        <img src="images/modelo3_foto2.jpg" loading="lazy" alt="Brainless Elisha 2">
+        <img src="images/modelo3_foto3.jpg" loading="lazy" alt="Brainless Elisha 3">
       </div>
     </div>
     <div class="model-row">
       <h3>Lara, Brazilian pregnant slut</h3>
       <div class="model-grid">
-        <img src="images/modelo4_foto1.jpg" loading="lazy">
-        <img src="images/modelo4_foto2.jpg" loading="lazy">
-        <img src="images/modelo4_foto3.jpg" loading="lazy">
+        <img src="images/modelo4_foto1.jpg" loading="lazy" alt="Lara 1">
+        <img src="images/modelo4_foto2.jpg" loading="lazy" alt="Lara 2">
+        <img src="images/modelo4_foto3.jpg" loading="lazy" alt="Lara 3">
       </div>
     </div>
   </div>
@@ -228,13 +210,8 @@
     </div>
   </div>
 
-  <!-- Botão Offer Yourself -->
-  <div class="offer-button-wrapper">
-    <div class="emergency-button" onclick="showSection('offer')"></div>
-    <div class="click-label">Click Here</div>
-  </div>
   <!-- OFFER YOURSELF -->
-  <div id="offer" class="section">
+  <div id="offer" class="section" style="display:none;">
     <form id="offerForm">
       <label for="from_name"><span class="icon">🐷</span> What should I call you:</label>
       <select name="from_name" id="from_name" required>
@@ -272,22 +249,159 @@
     </form>
   </div>
 
-  <!-- Carrossel de bônus -->
-  <div class="carousel">
-    <div class="carousel-track">
-      <img src="images/carrossel_1.jpg" loading="lazy" />
-      <img src="images/carrossel_2.jpg" loading="lazy" />
-      <img src="images/carrossel_3.jpg" loading="lazy" />
-      <img src="images/carrossel_4.jpg" loading="lazy" />
-      <img src="images/carrossel_5.jpg" loading="lazy" />
-      <img src="images/carrossel_6.jpg" loading="lazy" />
-      <img src="images/carrossel_7.jpg" loading="lazy" />
-      <img src="images/carrossel_8.jpg" loading="lazy" />
-      <img src="images/carrossel_9.jpg" loading="lazy" />
+  <!-- CARROSSEL BÔNUS - começa aqui -->
+  <div id="carousel-container" style="margin: 30px auto 40px; max-width: 600px; overflow: hidden;">
+    <div id="carousel" style="display: flex; gap: 10px;">
+      <img src="images/carrossel_1.jpg" loading="lazy" alt="Carousel 1" class="carousel-img">
+      <img src="images/carrossel_2.jpg" loading="lazy" alt="Carousel 2" class="carousel-img">
+      <img src="images/carrossel_3.jpg" loading="lazy" alt="Carousel 3" class="carousel-img">
+      <img src="images/carrossel_4.jpg" loading="lazy" alt="Carousel 4" class="carousel-img">
+      <img src="images/carrossel_5.jpg" loading="lazy" alt="Carousel 5" class="carousel-img">
+      <img src="images/carrossel_6.jpg" loading="lazy" alt="Carousel 6" class="carousel-img">
+      <img src="images/carrossel_7.jpg" loading="lazy" alt="Carousel 7" class="carousel-img">
+      <img src="images/carrossel_8.jpg" loading="lazy" alt="Carousel 8" class="carousel-img">
+      <img src="images/carrossel_9.jpg" loading="lazy" alt="Carousel 9" class="carousel-img">
     </div>
-  </div>
+        </div>
+        <style>
+    /* Perfil do Plankton no topo, centralizado */
+    #profile-pic {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #b47fd7;
+      box-shadow: 0 0 8px #b47fd7;
+      z-index: 1000;
+      background: black;
+    }
 
-  <!-- Rodapé -->
+    /* Botão vermelho grande redondo */
+    #offer-button {
+      background: radial-gradient(circle at center, #ff3b3b, #a60000);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #ff0000;
+      box-shadow:
+        0 0 20px #ff4444,
+        inset 0 0 15px #ff6666;
+      color: white;
+      font-family: 'Share Tech Mono', monospace;
+      font-weight: bold;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin: 30px auto 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    #offer-button:hover {
+      box-shadow:
+        0 0 30px #ff6666,
+        inset 0 0 25px #ff8888;
+    }
+
+    #offer-button-text {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8em;
+      color: #ddd;
+      text-align: center;
+      user-select: none;
+      margin-bottom: 30px;
+    }
+
+    /* Carrossel */
+    #carousel-container {
+      user-select: none;
+    }
+
+    #carousel {
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+      width: 100%;
+      animation: scrollCarousel 30s linear infinite;
+    }
+
+    .carousel-img {
+      width: calc((100% / 3) - 5.33px);
+      height: auto;
+      border-radius: 5px;
+      filter: brightness(0.9);
+      transition: filter 0.3s ease;
+    }
+
+    .carousel-img:hover {
+      filter: brightness(1);
+    }
+
+    @keyframes scrollCarousel {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-33.33% - 10px));
+      }
+    }
+  </style>
+
+  <img id="profile-pic" src="images/plankton_home.jpg" alt="Plankton Profile" loading="lazy">
+
+  <button id="offer-button" onclick="showSection('offer')">Offer Yourself</button>
+  <div id="offer-button-text">Click Here</div>
+
+  <script>
+    // Função para mostrar a seção "offer" ao clicar no botão e esconder outras
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    // Garante que ao clicar em outras opções do menu, o offer não apareça e botão funcione corretamente
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const id = a.textContent.toLowerCase();
+        // Mostra só a seção clicada, esconde offer
+        if(id !== 'offer yourself') {
+          document.getElementById('offer').style.display = 'none';
+          const sections = document.querySelectorAll('.section');
+          sections.forEach(sec => {
+            if(sec.id === id) {
+              sec.style.display = 'block';
+            } else if(sec.id !== 'offer') {
+              sec.style.display = 'none';
+            }
+          });
+        }
+      });
+    });
+
+    // EmailJS submit handler (mantido do código anterior)
+    document.getElementById('offerForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
+        .then(function () {
+          alert('Form sent successfully!');
+          document.getElementById('offerForm').reset();
+          // Volta para home após envio
+          showSection('home');
+        }, function (error) {
+          alert('Failed to send form. Please try again.');
+          console.error('Error sending form:', error);
+        });
+    });
+  </script>
+
   <footer>
 I'm going to brainwash you.
 You will feel and do things like never before.
@@ -297,36 +411,5 @@ You were born for this, you just took time to accept it.
 Humiliation is not punishment, it's a reward.
 Think less. Feel more. Obey always.
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-
-    document.getElementById('offerForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
-        .then(function () {
-          alert('Form sent successfully!');
-          document.getElementById('offerForm').reset();
-        }, function (error) {
-          alert('Failed to send form. Please try again.');
-          console.error('Error sending form:', error);
-        });
-    });
-
-    // Carrossel automático
-    const track = document.querySelector('.carousel-track');
-    let position = 0;
-
-    setInterval(() => {
-      position -= 100;
-      if (Math.abs(position) >= 300) position = 0;
-      track.style.transform = `translateX(${position}%)`;
-    }, 3000);
-  </script>
 </body>
 </html>
