@@ -6,7 +6,8 @@
   <title>Piggy's Playground</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
     body {
       margin: 0;
       padding: 0;
@@ -14,18 +15,7 @@
       font-family: 'Share Tech Mono', monospace;
       color: white;
       text-align: center;
-    }
-
-    /* Foto de perfil plankton centralizada acima do título */
-    #profile-pic {
-      display: block;
-      margin: 20px auto 10px auto;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #a66bc1;
-      box-shadow: 0 0 8px #a66bc1;
+      position: relative; /* para posicionar perfil */
     }
 
     h1 {
@@ -33,13 +23,23 @@
       position: relative;
       color: white;
       text-transform: uppercase;
-      animation: flicker 3s infinite;
-      margin: 10px 0 5px;
-      font-family: 'Share Tech Mono', monospace;
-      z-index: 1;
+      margin: 40px 0 5px;
+      z-index: 1; /* para ficar abaixo da foto */
     }
 
-    /* Removido o menu Offer Yourself */
+    .subtitle {
+      font-size: 0.7em;
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #ccc;
+      z-index: 1;
+      position: relative;
+    }
+
+    nav {
+      margin-bottom: 30px;
+    }
+
     nav a {
       font-size: 1em;
       color: white;
@@ -52,37 +52,208 @@
 
     nav a:hover {
       color: #f0f;
-      text-shadow: 0 0 5px #f0f;
+      text-shadow: 0 0 3px #f0f;
     }
 
-    /* Botão vermelho redondo "Offer Yourself" sobre o texto da Home */
-    #offer-button {
-      background: linear-gradient(45deg, #ff0000, #cc0000);
-      border: 2.5px solid #ff4444;
-      box-shadow:
-        0 0 12px #ff5555,
-        inset 0 0 8px #ff0000;
+    .section {
+      display: none;
+      max-width: 600px;
+      margin: auto;
+      padding: 0 20px 40px;
+      text-align: left;
+      font-size: 0.9em;
+      line-height: 1.6em;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .home-text {
+      font-size: 1.2em;
+      text-align: center;
       color: white;
-      font-family: 'Share Tech Mono', monospace;
-      font-weight: bold;
-      font-size: 1em;
-      width: 140px;
-      height: 140px;
+      margin-bottom: 30px;
+    }
+
+    /* Removido .centered-image para Home, conforme pedido */
+
+    .profile-pic {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
+      border: 2px solid #999;
+      box-shadow: 0 0 4px #666;
+      z-index: 10; /* para ficar acima do título */
+    }
+
+    .flag {
+      font-size: 2em;
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* botão Offer Yourself - será colocado depois do Contact */
+    #offerButton {
+      position: relative;
+      margin: 30px auto 10px;
+      width: 90px;
+      height: 90px;
+      background: #e60000;
+      border-radius: 50%;
+      box-shadow:
+        0 0 10px #e60000,
+        inset 0 0 20px #ff3333;
       cursor: pointer;
-      margin: 0 auto 25px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-weight: bold;
+      font-size: 0.95em;
+      color: white;
+      text-transform: uppercase;
       user-select: none;
+      font-family: 'Share Tech Mono', monospace;
+      border: 2px solid #ff0000;
       transition: box-shadow 0.3s ease;
-      position: relative;
-      z-index: 2;
+      z-index: 5;
     }
-    #offer-button:hover {
+
+    #offerButton:hover {
       box-shadow:
-        0 0 20px #ff8888,
-        inset 0 0 12px #ff4444;
+        0 0 20px #ff0000,
+        inset 0 0 30px #ff4d4d;
+    }
+
+    #offerClickText {
+      text-align: center;
+      font-size: 0.7em;
+      color: #ccc;
+      margin-top: 5px;
+      font-family: 'Share Tech Mono', monospace;
+      user-select: none;
+    }
+
+    /* Carrossel container */
+    #carouselContainer {
+      max-width: 600px;
+      margin: 20px auto 40px;
+      overflow: hidden;
+      position: relative;
+      height: 80px; /* altura menor, sutil */
+    }
+
+    /* carrossel track */
+    #carouselTrack {
+      display: flex;
+      width: calc(9 * 110px);
+      animation: scrollCarousel 36s linear infinite;
+      gap: 10px;
+    }
+
+    #carouselTrack img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+      filter: brightness(0.85);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes scrollCarousel {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-110px * 9));
+      }
+    }
+
+    footer {
+      font-size: 0.7em;
+      color: #aaa;
+      text-align: center;
+      margin-top: 60px;
+      padding-bottom: 20px;
+      white-space: pre-line;
+      user-select: none;
+    }
+
+    /* Formulário OFFER ajustado */
+    #offerForm {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #999;
+      box-shadow: 0 0 3px #555;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: white;
+      font-size: 0.8em;
+    }
+
+    #offerForm label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: #ccc;
+      text-shadow: none;
+    }
+
+    #offerForm label .icon {
+      font-size: 1.8em;
+      width: 30px;
+      text-align: center;
+    }
+
+    #offerForm select,
+    #offerForm textarea,
+    #offerForm input[type="text"] {
+      background: #1b1b1b;
+      border: 1px solid #666;
+      border-radius: 6px;
+      color: white;
+      padding: 10px;
+      font-size: 0.9em;
+      box-shadow: none;
+    }
+
+    #offerForm select:focus,
+    #offerForm textarea:focus,
+    #offerForm input[type="text"]:focus {
+      outline: none;
+      border-color: #aaa;
+      background: #222;
+    }
+
+    #offerForm textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    #offerForm button {
+      background: #444;
+      border: 1px solid #888;
+      border-radius: 10px;
+      color: white;
+      font-size: 1em;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #offerForm button:hover {
+      background: #555;
     }
 
   </style>
@@ -94,25 +265,16 @@
   </script>
 </head>
 <body>
-  <!-- FOTO DE PERFIL CENTRALIZADA -->
-  <img id="profile-pic" src="images/plankton_home.jpg" alt="Plankton Profile Picture" loading="lazy">
-
+  <img src="images/plankton_home.jpg" alt="Profile Picture" class="profile-pic" loading="lazy">
   <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
-
   <div class="subtitle">by rj_own</div>
-
   <nav>
     <a onclick="showSection('home')">Home</a>
     <a onclick="showSection('about')">About</a>
     <a onclick="showSection('projects')">Projects</a>
     <a onclick="showSection('contact')">Contact</a>
-    <!-- "Offer Yourself" removido do menu -->
+    <!-- removido offer yourself do menu conforme pedido -->
   </nav>
-
-  <!-- BOTÃO VERMELHO "OFFER YOURSELF" -->
-  <div style="position: relative; z-index: 2;">
-    <button id="offer-button" onclick="showSection('offer')">Offer Yourself</button>
-  </div>
 
   <!-- HOME -->
   <div id="home" class="section active">
@@ -123,8 +285,8 @@
       <div class="flag">🇧🇷</div>
       <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
     </div>
+    <!-- REMOVIDA A IMAGEM plankton_home.jpg DO MEIO DA HOME -->
   </div>
-
   <!-- ABOUT -->
   <div id="about" class="section">
     <div class="text-block">
@@ -154,33 +316,33 @@
     <div class="model-row">
       <h3>Fat Spicy</h3>
       <div class="model-grid">
-        <img src="images/modelo1_foto1.jpg" loading="lazy" alt="Fat Spicy 1">
-        <img src="images/modelo1_foto2.jpg" loading="lazy" alt="Fat Spicy 2">
-        <img src="images/modelo1_foto3.jpg" loading="lazy" alt="Fat Spicy 3">
+        <img src="images/modelo1_foto1.jpg" alt="Fat Spicy 1" loading="lazy">
+        <img src="images/modelo1_foto2.jpg" alt="Fat Spicy 2" loading="lazy">
+        <img src="images/modelo1_foto3.jpg" alt="Fat Spicy 3" loading="lazy">
       </div>
     </div>
     <div class="model-row">
       <h3>Piggy Melissa</h3>
       <div class="model-grid">
-        <img src="images/modelo2_foto1.jpg" loading="lazy" alt="Piggy Melissa 1">
-        <img src="images/modelo2_foto2.jpg" loading="lazy" alt="Piggy Melissa 2">
-        <img src="images/modelo2_foto3.jpg" loading="lazy" alt="Piggy Melissa 3">
+        <img src="images/modelo2_foto1.jpg" alt="Piggy Melissa 1" loading="lazy">
+        <img src="images/modelo2_foto2.jpg" alt="Piggy Melissa 2" loading="lazy">
+        <img src="images/modelo2_foto3.jpg" alt="Piggy Melissa 3" loading="lazy">
       </div>
     </div>
     <div class="model-row">
       <h3>Brainless Elisha</h3>
       <div class="model-grid">
-        <img src="images/modelo3_foto1.jpg" loading="lazy" alt="Brainless Elisha 1">
-        <img src="images/modelo3_foto2.jpg" loading="lazy" alt="Brainless Elisha 2">
-        <img src="images/modelo3_foto3.jpg" loading="lazy" alt="Brainless Elisha 3">
+        <img src="images/modelo3_foto1.jpg" alt="Brainless Elisha 1" loading="lazy">
+        <img src="images/modelo3_foto2.jpg" alt="Brainless Elisha 2" loading="lazy">
+        <img src="images/modelo3_foto3.jpg" alt="Brainless Elisha 3" loading="lazy">
       </div>
     </div>
     <div class="model-row">
       <h3>Lara, Brazilian pregnant slut</h3>
       <div class="model-grid">
-        <img src="images/modelo4_foto1.jpg" loading="lazy" alt="Lara 1">
-        <img src="images/modelo4_foto2.jpg" loading="lazy" alt="Lara 2">
-        <img src="images/modelo4_foto3.jpg" loading="lazy" alt="Lara 3">
+        <img src="images/modelo4_foto1.jpg" alt="Lara 1" loading="lazy">
+        <img src="images/modelo4_foto2.jpg" alt="Lara 2" loading="lazy">
+        <img src="images/modelo4_foto3.jpg" alt="Lara 3" loading="lazy">
       </div>
     </div>
   </div>
@@ -188,30 +350,33 @@
   <!-- CONTACT -->
   <div id="contact" class="section">
     <div class="link-block">
-      <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_own" target="_blank">t.me/rj_own</a>
+      <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_own" target="_blank" rel="noopener noreferrer">t.me/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon erome">E</span> - <a href="https://www.erome.com/rj_own" target="_blank">erome.com/rj_own</a>
+      <span class="custom-icon erome">E</span> - <a href="https://www.erome.com/rj_own" target="_blank" rel="noopener noreferrer">erome.com/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon fl">FL</span> - <a href="https://fetlife.com/rj_own" target="_blank">fetlife.com/rj_own</a>
+      <span class="custom-icon fl">FL</span> - <a href="https://fetlife.com/rj_own" target="_blank" rel="noopener noreferrer">fetlife.com/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon"><span class="sb-s">S</span><span class="sb-b">B</span></span> - <a href="https://sltb.live/user/rj_own/" target="_blank">sltb.live/user/rj_own</a>
+      <span class="custom-icon"><span class="sb-s">S</span><span class="sb-b">B</span></span> - <a href="https://sltb.live/user/rj_own/" target="_blank" rel="noopener noreferrer">sltb.live/user/rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fab fa-instagram"></i> - <a href="https://www.instagram.com/rj_own?igsh=MTg1Zm9xOGk4YjJuaw==" target="_blank">@rj_own</a>
+      <i class="fab fa-instagram"></i> - <a href="https://www.instagram.com/rj_own?igsh=MTg1Zm9xOGk4YjJuaw==" target="_blank" rel="noopener noreferrer">@rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fab fa-snapchat-ghost"></i> - <a href="https://www.snapchat.com/add/rj_own" target="_blank">snapchat.com/add/rj_own</a>
+      <i class="fab fa-snapchat-ghost"></i> - <a href="https://www.snapchat.com/add/rj_own" target="_blank" rel="noopener noreferrer">snapchat.com/add/rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank">kik.me/rj_own</a>
+      <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
     </div>
-  </div>
 
-  <!-- OFFER YOURSELF -->
-  <div id="offer" class="section" style="display:none;">
+    <!-- Botão Offer Yourself -->
+    <button id="offerButton" onclick="showSection('offer')">Offer Yourself</button>
+    <div id="offerClickText">Click Here</div>
+  </div>
+ <!-- OFFER YOURSELF -->
+  <div id="offer" class="section">
     <form id="offerForm">
       <label for="from_name"><span class="icon">🐷</span> What should I call you:</label>
       <select name="from_name" id="from_name" required>
@@ -249,158 +414,20 @@
     </form>
   </div>
 
-  <!-- CARROSSEL BÔNUS - começa aqui -->
-  <div id="carousel-container" style="margin: 30px auto 40px; max-width: 600px; overflow: hidden;">
-    <div id="carousel" style="display: flex; gap: 10px;">
-      <img src="images/carrossel_1.jpg" loading="lazy" alt="Carousel 1" class="carousel-img">
-      <img src="images/carrossel_2.jpg" loading="lazy" alt="Carousel 2" class="carousel-img">
-      <img src="images/carrossel_3.jpg" loading="lazy" alt="Carousel 3" class="carousel-img">
-      <img src="images/carrossel_4.jpg" loading="lazy" alt="Carousel 4" class="carousel-img">
-      <img src="images/carrossel_5.jpg" loading="lazy" alt="Carousel 5" class="carousel-img">
-      <img src="images/carrossel_6.jpg" loading="lazy" alt="Carousel 6" class="carousel-img">
-      <img src="images/carrossel_7.jpg" loading="lazy" alt="Carousel 7" class="carousel-img">
-      <img src="images/carrossel_8.jpg" loading="lazy" alt="Carousel 8" class="carousel-img">
-      <img src="images/carrossel_9.jpg" loading="lazy" alt="Carousel 9" class="carousel-img">
+  <!-- Pequeno carrossel de imagens - bônus acima do rodapé -->
+  <div id="carouselContainer">
+    <div id="carousel">
+      <img src="images/carrossel_1.jpg" alt="Slide 1" loading="lazy">
+      <img src="images/carrossel_2.jpg" alt="Slide 2" loading="lazy">
+      <img src="images/carrossel_3.jpg" alt="Slide 3" loading="lazy">
+      <img src="images/carrossel_4.jpg" alt="Slide 4" loading="lazy">
+      <img src="images/carrossel_5.jpg" alt="Slide 5" loading="lazy">
+      <img src="images/carrossel_6.jpg" alt="Slide 6" loading="lazy">
+      <img src="images/carrossel_7.jpg" alt="Slide 7" loading="lazy">
+      <img src="images/carrossel_8.jpg" alt="Slide 8" loading="lazy">
+      <img src="images/carrossel_9.jpg" alt="Slide 9" loading="lazy">
     </div>
-        </div>
-        <style>
-    /* Perfil do Plankton no topo, centralizado */
-    #profile-pic {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid #b47fd7;
-      box-shadow: 0 0 8px #b47fd7;
-      z-index: 1000;
-      background: black;
-    }
-
-    /* Botão vermelho grande redondo */
-    #offer-button {
-      background: radial-gradient(circle at center, #ff3b3b, #a60000);
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #ff0000;
-      box-shadow:
-        0 0 20px #ff4444,
-        inset 0 0 15px #ff6666;
-      color: white;
-      font-family: 'Share Tech Mono', monospace;
-      font-weight: bold;
-      font-size: 1.2em;
-      cursor: pointer;
-      margin: 30px auto 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      transition: box-shadow 0.3s ease;
-    }
-
-    #offer-button:hover {
-      box-shadow:
-        0 0 30px #ff6666,
-        inset 0 0 25px #ff8888;
-    }
-
-    #offer-button-text {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.8em;
-      color: #ddd;
-      text-align: center;
-      user-select: none;
-      margin-bottom: 30px;
-    }
-
-    /* Carrossel */
-    #carousel-container {
-      user-select: none;
-    }
-
-    #carousel {
-      display: flex;
-      gap: 8px;
-      overflow: hidden;
-      width: 100%;
-      animation: scrollCarousel 30s linear infinite;
-    }
-
-    .carousel-img {
-      width: calc((100% / 3) - 5.33px);
-      height: auto;
-      border-radius: 5px;
-      filter: brightness(0.9);
-      transition: filter 0.3s ease;
-    }
-
-    .carousel-img:hover {
-      filter: brightness(1);
-    }
-
-    @keyframes scrollCarousel {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-33.33% - 10px));
-      }
-    }
-  </style>
-
-  <img id="profile-pic" src="images/plankton_home.jpg" alt="Plankton Profile" loading="lazy">
-
-  <button id="offer-button" onclick="showSection('offer')">Offer Yourself</button>
-  <div id="offer-button-text">Click Here</div>
-
-  <script>
-    // Função para mostrar a seção "offer" ao clicar no botão e esconder outras
-    function showSection(id) {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(sec => sec.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
-
-    // Garante que ao clicar em outras opções do menu, o offer não apareça e botão funcione corretamente
-    document.querySelectorAll('nav a').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const id = a.textContent.toLowerCase();
-        // Mostra só a seção clicada, esconde offer
-        if(id !== 'offer yourself') {
-          document.getElementById('offer').style.display = 'none';
-          const sections = document.querySelectorAll('.section');
-          sections.forEach(sec => {
-            if(sec.id === id) {
-              sec.style.display = 'block';
-            } else if(sec.id !== 'offer') {
-              sec.style.display = 'none';
-            }
-          });
-        }
-      });
-    });
-
-    // EmailJS submit handler (mantido do código anterior)
-    document.getElementById('offerForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
-        .then(function () {
-          alert('Form sent successfully!');
-          document.getElementById('offerForm').reset();
-          // Volta para home após envio
-          showSection('home');
-        }, function (error) {
-          alert('Failed to send form. Please try again.');
-          console.error('Error sending form:', error);
-        });
-    });
-  </script>
+  </div>
 
   <footer>
 I'm going to brainwash you.
@@ -411,5 +438,70 @@ You were born for this, you just took time to accept it.
 Humiliation is not punishment, it's a reward.
 Think less. Feel more. Obey always.
   </footer>
-</body>
-</html>
+
+  <style>
+    /* Botão vermelho redondo e texto "Click Here" */
+    #offerButton {
+      margin: 20px auto 5px;
+      display: block;
+      background-color: #e60000;
+      border: none;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.1em;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #e60000;
+      transition: box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    #offerButton:hover {
+      box-shadow: 0 0 20px #ff3333;
+    }
+
+    #offerClickText {
+      text-align: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75em;
+      color: #bbb;
+      margin-bottom: 40px;
+      user-select: none;
+    }
+
+    /* Carrossel suave pequeno */
+    #carouselContainer {
+      width: 100%;
+      overflow: hidden;
+      margin: 0 auto 40px;
+      max-width: 600px;
+    }
+
+    #carousel {
+      display: flex;
+      gap: 10px;
+      animation: scrollCarousel 45s linear infinite;
+    }
+
+    #carousel img {
+      width: 32%;
+      border-radius: 6px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes scrollCarousel {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-66.66%); }
+    }
+  </style>
+
+  <script>
+    // Evento do botão para abrir a seção Offer
+    document.getElementById('offerButton').addEventListener('click', function() {
+      showSection('offer');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
