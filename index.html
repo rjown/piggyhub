@@ -23,10 +23,21 @@
       color: white;
       text-transform: uppercase;
       margin: 40px 0 5px;
+      z-index: 2;
+    }
+
+    .profile-pic {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid #fff;
     }
 
     .subtitle {
-      font-size: 0.7em;
+      font-size: 0.6em;
       font-style: italic;
       margin-bottom: 30px;
       color: #ccc;
@@ -48,7 +59,7 @@
 
     nav a:hover {
       color: #f0f;
-      text-shadow: 0 0 3px #f0f;
+      text-shadow: 0 0 2px #f0f;
     }
 
     .section {
@@ -57,7 +68,7 @@
       margin: auto;
       padding: 0 20px 40px;
       text-align: left;
-      font-size: 0.9em;
+      font-size: 0.75em;
       line-height: 1.6em;
     }
 
@@ -66,28 +77,11 @@
     }
 
     .home-text {
-      font-size: 1.2em;
+      font-size: 1.5em;
       text-align: center;
       color: white;
+      text-shadow: 0 0 1px #f0f, 0 0 2px #ff0;
       margin-bottom: 30px;
-    }
-
-    .centered-image {
-      display: block;
-      margin: 30px auto 0;
-      max-width: 100%;
-      height: auto;
-    }
-
-    .profile-pic {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid #999;
-      box-shadow: 0 0 4px #666;
     }
 
     .flag {
@@ -97,143 +91,38 @@
       margin-bottom: 10px;
     }
 
-    .text-block {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #444;
-      padding: 15px 20px;
-      margin-bottom: 30px;
-      border-radius: 6px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: white;
-    }
-
-    .model-row {
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .model-row h3 {
-      margin-bottom: 10px;
-    }
-
-    .model-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .model-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-    }
-
-    .link-block {
-      font-size: 1em;
-      margin-bottom: 20px;
-    }
-
-    .custom-icon {
-      margin-right: 8px;
-      font-weight: bold;
-    }
-
-    .fl { color: darkred; }
-    .erome { color: #ff4d4d; }
-    .sb-s { color: white; }
-    .sb-b { color: orange; }
-
-    footer {
-      font-size: 0.7em;
-      color: #aaa;
-      text-align: center;
-      margin-top: 60px;
-      padding-bottom: 20px;
-      white-space: pre-line;
-      user-select: none;
-    }
-    /* Formulário OFFER ajustado */
-    #offerForm {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #111;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #999;
-      box-shadow: 0 0 3px #555;
+    /* Estilo botão redondo */
+    .offer-button-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      color: white;
-      font-size: 0.8em;
-    }
-
-    #offerForm label {
-      display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: bold;
-      color: #ccc;
-      text-shadow: none;
+      margin: 30px 0;
     }
 
-    #offerForm label .icon {
-      font-size: 1.8em;
-      width: 30px;
-      text-align: center;
-    }
-
-    #offerForm select,
-    #offerForm textarea,
-    #offerForm input[type="text"] {
-      background: #1b1b1b;
-      border: 1px solid #666;
-      border-radius: 6px;
-      color: white;
-      padding: 10px;
-      font-size: 0.9em;
-      box-shadow: none;
-    }
-
-    #offerForm select:focus,
-    #offerForm textarea:focus,
-    #offerForm input[type="text"]:focus {
-      outline: none;
-      border-color: #aaa;
-      background: #222;
-    }
-
-    #offerForm textarea {
-      resize: vertical;
-      min-height: 60px;
-    }
-
-    #offerForm button {
-      background: #444;
-      border: 1px solid #888;
-      border-radius: 10px;
-      color: white;
-      font-size: 1em;
-      padding: 12px 20px;
+    .emergency-button {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, red, darkred);
+      border: 3px solid #fff;
+      border-radius: 50%;
       cursor: pointer;
-      transition: background 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+      transition: transform 0.2s ease;
     }
 
-    #offerForm button:hover {
-      background: #555;
+    .emergency-button:hover {
+      transform: scale(1.1);
+    }
+
+    .click-label {
+      margin-top: 5px;
+      font-size: 0.7em;
+      color: #ccc;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init("zPqYpeD99BQa1yXzj");
-    })();
-  </script>
 </head>
 <body>
-  <img src="images/plankton_home.jpg" alt="Profile Picture" class="profile-pic" loading="lazy">
+  <img src="images/plankton_home.jpg" alt="Profile" class="profile-pic" loading="lazy" />
   <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
   <div class="subtitle">by rj_own</div>
   <nav>
@@ -253,9 +142,7 @@
       <div class="flag">🇧🇷</div>
       <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
     </div>
-    <img src="images/plankton_home.jpg" alt="Plankton" class="centered-image" loading="lazy">
   </div>
-
   <!-- ABOUT -->
   <div id="about" class="section">
     <div class="text-block">
@@ -279,66 +166,73 @@
       </div>
     </div>
   </div>
+
   <!-- PROJECTS -->
   <div id="projects" class="section">
     <div class="model-row">
       <h3>Fat Spicy</h3>
       <div class="model-grid">
-        <img src="images/modelo1_foto1.jpg" alt="Fat Spicy 1" loading="lazy">
-        <img src="images/modelo1_foto2.jpg" alt="Fat Spicy 2" loading="lazy">
-        <img src="images/modelo1_foto3.jpg" alt="Fat Spicy 3" loading="lazy">
+        <img src="images/modelo1_foto1.jpg" loading="lazy">
+        <img src="images/modelo1_foto2.jpg" loading="lazy">
+        <img src="images/modelo1_foto3.jpg" loading="lazy">
       </div>
     </div>
     <div class="model-row">
       <h3>Piggy Melissa</h3>
       <div class="model-grid">
-        <img src="images/modelo2_foto1.jpg" alt="Piggy Melissa 1" loading="lazy">
-        <img src="images/modelo2_foto2.jpg" alt="Piggy Melissa 2" loading="lazy">
-        <img src="images/modelo2_foto3.jpg" alt="Piggy Melissa 3" loading="lazy">
+        <img src="images/modelo2_foto1.jpg" loading="lazy">
+        <img src="images/modelo2_foto2.jpg" loading="lazy">
+        <img src="images/modelo2_foto3.jpg" loading="lazy">
       </div>
     </div>
     <div class="model-row">
       <h3>Brainless Elisha</h3>
       <div class="model-grid">
-        <img src="images/modelo3_foto1.jpg" alt="Brainless Elisha 1" loading="lazy">
-        <img src="images/modelo3_foto2.jpg" alt="Brainless Elisha 2" loading="lazy">
-        <img src="images/modelo3_foto3.jpg" alt="Brainless Elisha 3" loading="lazy">
+        <img src="images/modelo3_foto1.jpg" loading="lazy">
+        <img src="images/modelo3_foto2.jpg" loading="lazy">
+        <img src="images/modelo3_foto3.jpg" loading="lazy">
       </div>
     </div>
     <div class="model-row">
       <h3>Lara, Brazilian pregnant slut</h3>
       <div class="model-grid">
-        <img src="images/modelo4_foto1.jpg" alt="Lara 1" loading="lazy">
-        <img src="images/modelo4_foto2.jpg" alt="Lara 2" loading="lazy">
-        <img src="images/modelo4_foto3.jpg" alt="Lara 3" loading="lazy">
+        <img src="images/modelo4_foto1.jpg" loading="lazy">
+        <img src="images/modelo4_foto2.jpg" loading="lazy">
+        <img src="images/modelo4_foto3.jpg" loading="lazy">
       </div>
     </div>
   </div>
+
   <!-- CONTACT -->
   <div id="contact" class="section">
     <div class="link-block">
-      <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_own" target="_blank" rel="noopener noreferrer">t.me/rj_own</a>
+      <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_own" target="_blank">t.me/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon erome">E</span> - <a href="https://www.erome.com/rj_own" target="_blank" rel="noopener noreferrer">erome.com/rj_own</a>
+      <span class="custom-icon erome">E</span> - <a href="https://www.erome.com/rj_own" target="_blank">erome.com/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon fl">FL</span> - <a href="https://fetlife.com/rj_own" target="_blank" rel="noopener noreferrer">fetlife.com/rj_own</a>
+      <span class="custom-icon fl">FL</span> - <a href="https://fetlife.com/rj_own" target="_blank">fetlife.com/rj_own</a>
     </div>
     <div class="link-block">
-      <span class="custom-icon"><span class="sb-s">S</span><span class="sb-b">B</span></span> - <a href="https://sltb.live/user/rj_own/" target="_blank" rel="noopener noreferrer">sltb.live/user/rj_own</a>
+      <span class="custom-icon"><span class="sb-s">S</span><span class="sb-b">B</span></span> - <a href="https://sltb.live/user/rj_own/" target="_blank">sltb.live/user/rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fab fa-instagram"></i> - <a href="https://www.instagram.com/rj_own?igsh=MTg1Zm9xOGk4YjJuaw==" target="_blank" rel="noopener noreferrer">@rj_own</a>
+      <i class="fab fa-instagram"></i> - <a href="https://www.instagram.com/rj_own?igsh=MTg1Zm9xOGk4YjJuaw==" target="_blank">@rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fab fa-snapchat-ghost"></i> - <a href="https://www.snapchat.com/add/rj_own" target="_blank" rel="noopener noreferrer">snapchat.com/add/rj_own</a>
+      <i class="fab fa-snapchat-ghost"></i> - <a href="https://www.snapchat.com/add/rj_own" target="_blank">snapchat.com/add/rj_own</a>
     </div>
     <div class="link-block">
-      <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
+      <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank">kik.me/rj_own</a>
     </div>
   </div>
 
+  <!-- Botão Offer Yourself -->
+  <div class="offer-button-wrapper">
+    <div class="emergency-button" onclick="showSection('offer')"></div>
+    <div class="click-label">Click Here</div>
+  </div>
   <!-- OFFER YOURSELF -->
   <div id="offer" class="section">
     <form id="offerForm">
@@ -378,6 +272,22 @@
     </form>
   </div>
 
+  <!-- Carrossel de bônus -->
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="images/carrossel_1.jpg" loading="lazy" />
+      <img src="images/carrossel_2.jpg" loading="lazy" />
+      <img src="images/carrossel_3.jpg" loading="lazy" />
+      <img src="images/carrossel_4.jpg" loading="lazy" />
+      <img src="images/carrossel_5.jpg" loading="lazy" />
+      <img src="images/carrossel_6.jpg" loading="lazy" />
+      <img src="images/carrossel_7.jpg" loading="lazy" />
+      <img src="images/carrossel_8.jpg" loading="lazy" />
+      <img src="images/carrossel_9.jpg" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- Rodapé -->
   <footer>
 I'm going to brainwash you.
 You will feel and do things like never before.
@@ -388,6 +298,7 @@ Humiliation is not punishment, it's a reward.
 Think less. Feel more. Obey always.
   </footer>
 
+  <!-- Scripts -->
   <script>
     function showSection(id) {
       const sections = document.querySelectorAll('.section');
@@ -397,7 +308,6 @@ Think less. Feel more. Obey always.
 
     document.getElementById('offerForm').addEventListener('submit', function (event) {
       event.preventDefault();
-
       emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
         .then(function () {
           alert('Form sent successfully!');
@@ -407,6 +317,16 @@ Think less. Feel more. Obey always.
           console.error('Error sending form:', error);
         });
     });
+
+    // Carrossel automático
+    const track = document.querySelector('.carousel-track');
+    let position = 0;
+
+    setInterval(() => {
+      position -= 100;
+      if (Math.abs(position) >= 300) position = 0;
+      track.style.transform = `translateX(${position}%)`;
+    }, 3000);
   </script>
 </body>
-  </html>
+</html>
