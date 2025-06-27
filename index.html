@@ -17,10 +17,9 @@
       }
       h1 {
         font-size: 2em;
-        position: relative;
         color: white;
         text-transform: uppercase;
-        margin: 40px 0 5px;
+        margin: 10px 0 5px;
       }
       .subtitle {
         font-size: 0.7em;
@@ -69,9 +68,8 @@
         height: auto;
       }
       .profile-pic {
-        position: absolute;
-        top: 10px;
-        left: 10px;
+        display: block;
+        margin: 20px auto 10px;
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -124,141 +122,131 @@
       .erome { color: #ff4d4d; }
       .sb-s { color: white; }
       .sb-b { color: orange; }
-      footer {
+      <!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Piggy's Playground</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+      body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle at center, #222 0%, #000 70%);
+        font-family: 'Share Tech Mono', monospace;
+        color: white;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+        color: white;
+        text-transform: uppercase;
+        margin: 10px 0 5px;
+      }
+      .subtitle {
         font-size: 0.7em;
-        color: #aaa;
-        text-align: center;
-        margin-top: 60px;
-        padding-bottom: 20px;
-        white-space: pre-line;
-        user-select: none;
-      }
-      /* Formulário OFFER ajustado */
-      #offerForm {
-        max-width: 500px;
-        margin: 0 auto;
-        background: #111;
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid #999;
-        box-shadow: 0 0 3px #555;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        color: white;
-        font-size: 0.8em;
-      }
-      #offerForm label {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: bold;
+        font-style: italic;
+        margin-bottom: 30px;
         color: #ccc;
-        text-shadow: none;
       }
-      #offerForm label .icon {
-        font-size: 1.8em;
-        width: 30px;
+      nav {
+        margin-bottom: 30px;
+      }
+      nav a {
+        font-size: 1em;
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin: 10px 0;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+      }
+      nav a:hover {
+        color: #f0f;
+        text-shadow: 0 0 3px #f0f;
+      }
+      .section {
+        display: none;
+        max-width: 600px;
+        margin: auto;
+        padding: 0 20px 40px;
+        text-align: left;
+        font-size: 0.9em;
+        line-height: 1.6em;
+      }
+      .active {
+        display: block;
+      }
+      .home-text {
+        font-size: 1.2em;
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+      }
+      .centered-image {
+        display: block;
+        margin: 30px auto 0;
+        max-width: 100%;
+        height: auto;
+      }
+      .profile-pic {
+        display: block;
+        margin: 20px auto 10px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid #999;
+        box-shadow: 0 0 4px #666;
+      }
+      .flag {
+        font-size: 2em;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .text-block {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #444;
+        padding: 15px 20px;
+        margin-bottom: 30px;
+        border-radius: 6px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: white;
+      }
+      .model-row {
+        margin-bottom: 40px;
         text-align: center;
       }
-      #offerForm select,
-      #offerForm textarea,
-      #offerForm input[type="text"] {
-        background: #1b1b1b;
-        border: 1px solid #666;
+      .model-row h3 {
+        margin-bottom: 10px;
+      }
+      .model-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .model-grid img {
+        width: 100%;
+        height: auto;
         border-radius: 6px;
-        color: white;
-        padding: 10px;
-        font-size: 0.9em;
-        box-shadow: none;
       }
-      #offerForm select:focus,
-      #offerForm textarea:focus,
-      #offerForm input[type="text"]:focus {
-        outline: none;
-        border-color: #aaa;
-        background: #222;
-      }
-      #offerForm textarea {
-        resize: vertical;
-        min-height: 60px;
-      }
-      #offerForm button {
-        background: #444;
-        border: 1px solid #888;
-        border-radius: 10px;
-        color: white;
+      .link-block {
         font-size: 1em;
-        padding: 12px 20px;
-        cursor: pointer;
-        transition: background 0.3s ease;
+        margin-bottom: 20px;
       }
-      #offerForm button:hover {
-        background: #555;
+      .custom-icon {
+        margin-right: 8px;
+        font-weight: bold;
       }
-
-      /* Estilos do carrossel - visível só na Home */
-      #photo-carousel {
-        max-width: 600px;
-        margin: 20px auto 40px;
-        overflow: hidden;
-        border-radius: 8px;
-        border: 1px solid #444;
-      }
-      #carousel-track {
-        display: flex;
-        transition: transform 0.5s ease;
-        will-change: transform;
-      }
-      #carousel-track img {
-        width: 33.333%;
-        object-fit: cover;
-        flex-shrink: 0;
-        height: 180px;
-      }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init("zPqYpeD99BQa1yXzj");
-      })();
-    </script>
-  </head>
-  <body>
-    <img src="images/plankton_home.jpg" alt="Profile Picture" class="profile-pic" loading="lazy">
-    <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
-    <div class="subtitle">by rj_own</div>
-    <nav>
-      <a onclick="showSection('home')">Home</a>
-      <a onclick="showSection('about')">About</a>
-      <a onclick="showSection('projects')">Projects</a>
-      <a onclick="showSection('contact')">Contact</a>
-      <a onclick="showSection('offer')">Offer Yourself</a>
-    </nav>
-
-    <!-- HOME -->
-    <div id="home" class="section active">
-      <div class="home-text">
-        <div class="flag">🇺🇸</div>
-        <p>Become a whore, join the army of pigs without dignity. Turn off your brain and let your desires speak louder 😵‍💫.</p>
-        <br>
-        <div class="flag">🇧🇷</div>
-        <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
-      </div>
-
-      <!-- CARROSSEL DE FOTOS (somente na Home) -->
-      <div id="photo-carousel">
-        <div id="carousel-track">
-          <img src="images/carrossel_2.jpg" alt="Carousel 2" loading="lazy" width="200" height="180">
-          <img src="images/carrossel_3.jpg" alt="Carousel 3" loading="lazy" width="200" height="180">
-          <img src="images/carrossel_5.jpg" alt="Carousel 5" loading="lazy" width="200" height="180">
-          <img src="images/carrossel_6.jpg" alt="Carousel 6" loading="lazy" width="200" height="180">
-          <img src="images/puta5.jpg" alt="Carousel 5" loading="lazy" width="200" height="180">
-        </div>
-      </div>
-    </div>
-
-    <!-- ABOUT -->
+      .fl { color: darkred; }
+      .erome { color: #ff4d4d; }
+      .sb-s { color: white; }
+      .sb-b { color: orange; }
+      <!-- ABOUT -->
     <div id="about" class="section">
       <div class="text-block">
         <div class="flag">🇺🇸</div>
