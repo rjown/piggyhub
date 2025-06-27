@@ -197,19 +197,24 @@
         background: #555;
       }
 
-      /* NOVO: Mosaico de imagens substituindo carrossel */
-      #photo-mosaic {
-        max-width: 360px;
-        margin: 40px auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
+      /* Estilos do carrossel - visível só na Home */
+      #photo-carousel {
+        max-width: 600px;
+        margin: 20px auto 40px;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid #444;
       }
-      #photo-mosaic img {
-        width: 100%;
-        height: auto;
+      #carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        will-change: transform;
+      }
+      #carousel-track img {
+        width: 33.333%;
         object-fit: cover;
-        border-radius: 4px;
+        flex-shrink: 0;
+        height: 180px;
       }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -230,6 +235,7 @@
       <a onclick="showSection('contact')">Contact</a>
       <a onclick="showSection('offer')">Offer Yourself</a>
     </nav>
+
     <!-- HOME -->
     <div id="home" class="section active">
       <div class="home-text">
@@ -239,7 +245,19 @@
         <div class="flag">🇧🇷</div>
         <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
       </div>
+
+      <!-- CARROSSEL DE FOTOS (somente na Home) -->
+      <div id="photo-carousel">
+        <div id="carousel-track">
+          <img src="images/carrossel_2.jpg" alt="Carousel 2" loading="lazy" width="200" height="180">
+          <img src="images/carrossel_3.jpg" alt="Carousel 3" loading="lazy" width="200" height="180">
+          <img src="images/carrossel_5.jpg" alt="Carousel 5" loading="lazy" width="200" height="180">
+          <img src="images/carrossel_6.jpg" alt="Carousel 6" loading="lazy" width="200" height="180">
+          <img src="images/puta5.jpg" alt="Carousel 5" loading="lazy" width="200" height="180">
+        </div>
+      </div>
     </div>
+
     <!-- ABOUT -->
     <div id="about" class="section">
       <div class="text-block">
@@ -298,6 +316,7 @@
         </div>
       </div>
     </div>
+
     <!-- CONTACT -->
     <div id="contact" class="section">
       <div class="link-block">
@@ -323,20 +342,7 @@
       </div>
     </div>
 
-    <!-- MOSAICO DE FOTOS -->
-    <div id="photo-mosaic">
-      <img src="images/carrossel_1.jpg" alt="Mosaic 1" loading="lazy">
-      <img src="images/carrossel_2.jpg" alt="Mosaic 2" loading="lazy">
-      <img src="images/carrossel_3.jpg" alt="Mosaic 3" loading="lazy">
-      <img src="images/carrossel_4.jpg" alt="Mosaic 4" loading="lazy">
-      <img src="images/carrossel_5.jpg" alt="Mosaic 5" loading="lazy">
-      <img src="images/carrossel_6.jpg" alt="Mosaic 6" loading="lazy">
-      <img src="images/carrossel_7.jpg" alt="Mosaic 7" loading="lazy">
-      <img src="images/carrossel_8.jpg" alt="Mosaic 8" loading="lazy">
-      <img src="images/carrossel_9.jpg" alt="Mosaic 9" loading="lazy">
-    </div>
-
-    <!-- OFFER -->
+    <!-- OFFER YOURSELF -->
     <div id="offer" class="section">
       <form id="offerForm">
         <label for="from_name"><span class="icon">🐷</span> What should I call you:</label>
@@ -369,6 +375,7 @@
         <button type="submit">Become a Slut</button>
       </form>
     </div>
+
     <footer>
       I'm going to brainwash you.
       You will feel and do things like never before.
@@ -378,12 +385,14 @@
       Humiliation is not punishment, it's a reward.
       Think less. Feel more. Obey always.
     </footer>
+
     <script>
       function showSection(id) {
         const sections = document.querySelectorAll('.section');
         sections.forEach(sec => sec.classList.remove('active'));
         document.getElementById(id).classList.add('active');
       }
+
       document.getElementById('offerForm').addEventListener('submit', function (event) {
         event.preventDefault();
         emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
@@ -395,6 +404,24 @@
             console.error('Error sending form:', error);
           });
       });
+
+      (function() {
+        const track = document.getElementById('carousel-track');
+        const images = track.children;
+        const totalImages = images.length;
+        let index = 0;
+
+        function moveCarousel() {
+          index++;
+          if (index > totalImages - 3) {
+            index = 0;
+          }
+          const moveX = -index * (100 / 3);
+          track.style.transform = `translateX(${moveX}%)`;
+        }
+
+        setInterval(moveCarousel, 1500);
+      })();
     </script>
   </body>
-</html>
+  </html>
