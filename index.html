@@ -197,24 +197,19 @@
         background: #555;
       }
 
-      /* Estilos do carrossel - ajustado para fotos */
-      #photo-carousel {
-        max-width: 600px;
-        margin: 20px auto 40px;
-        overflow: hidden;
-        border-radius: 8px;
-        border: 1px solid #444;
+      /* NOVO: Mosaico de imagens substituindo carrossel */
+      #photo-mosaic {
+        max-width: 360px;
+        margin: 40px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
       }
-      #carousel-track {
-        display: flex;
-        transition: transform 0.5s ease;
-        will-change: transform;
-      }
-      #carousel-track img {
-        width: 33.333%;
+      #photo-mosaic img {
+        width: 100%;
+        height: auto;
         object-fit: cover;
-        flex-shrink: 0;
-        height: 180px;
+        border-radius: 4px;
       }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -244,7 +239,6 @@
         <div class="flag">🇧🇷</div>
         <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
       </div>
-      <!-- Imagem central removida aqui -->
     </div>
     <!-- ABOUT -->
     <div id="about" class="section">
@@ -328,21 +322,21 @@
         <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
       </div>
     </div>
-    <!-- CARROSSEL DE FOTOS -->
-    <div id="photo-carousel">
-      <div id="carousel-track">
-        <img src="images/carrossel_1.jpg" alt="Carousel 1" loading="lazy" width="200" height="180">
-        <img src="images/carrossel_2.jpg" alt="Carousel 2" loading="lazy" width="200" height="180">
-        <img src="images/carrossel_3.jpg" alt="Carousel 3" loading="lazy" width="200" height="180">
-        <img src="images/carrossel_4.jpg" alt="Carousel 4" loading="lazy" width="200" height="180">
-        <img src="images/carrossel_5.jpg" alt="Carousel 5" loading="lazy" width="200" height="180">
-        <img src="images/carrossel_6.jpg" alt="Carousel 6" loading="lazy" width="200" height="180">
-        <img src="images/carrossel_7.jpg" alt="Carousel 7" loading="lazy" width="200" height="180">
-        <img src="images/carrossel_8.jpg" alt="Carousel 8" loading="lazy" width="200" height="180">
-        <img src="images/carrossel_9.jpg" alt="Carousel 9" loading="lazy" width="200" height="180">
-      </div>
+
+    <!-- MOSAICO DE FOTOS -->
+    <div id="photo-mosaic">
+      <img src="images/carrossel_1.jpg" alt="Mosaic 1" loading="lazy">
+      <img src="images/carrossel_2.jpg" alt="Mosaic 2" loading="lazy">
+      <img src="images/carrossel_3.jpg" alt="Mosaic 3" loading="lazy">
+      <img src="images/carrossel_4.jpg" alt="Mosaic 4" loading="lazy">
+      <img src="images/carrossel_5.jpg" alt="Mosaic 5" loading="lazy">
+      <img src="images/carrossel_6.jpg" alt="Mosaic 6" loading="lazy">
+      <img src="images/carrossel_7.jpg" alt="Mosaic 7" loading="lazy">
+      <img src="images/carrossel_8.jpg" alt="Mosaic 8" loading="lazy">
+      <img src="images/carrossel_9.jpg" alt="Mosaic 9" loading="lazy">
     </div>
-    <!-- OFFER YOURSELF -->
+
+    <!-- OFFER -->
     <div id="offer" class="section">
       <form id="offerForm">
         <label for="from_name"><span class="icon">🐷</span> What should I call you:</label>
@@ -360,8 +354,8 @@
           <option value="">--Select--</option>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
-  </select>
-  <label for="where_to_text"><span class="icon">💬</span> Where should I text you:</label>
+        </select>
+        <label for="where_to_text"><span class="icon">💬</span> Where should I text you:</label>
         <select name="where_to_text" id="where_to_text" required>
           <option value="">--Select--</option>
           <option value="Telegram">Telegram</option>
@@ -401,24 +395,6 @@
             console.error('Error sending form:', error);
           });
       });
-
-      (function() {
-        const track = document.getElementById('carousel-track');
-        const images = track.children;
-        const totalImages = images.length;
-        let index = 0;
-
-        function moveCarousel() {
-          index++;
-          if (index > totalImages - 3) {
-            index = 0;
-          }
-          const moveX = -index * (100 / 3);
-          track.style.transform = `translateX(${moveX}%)`;
-        }
-
-        setInterval(moveCarousel, 1500);
-      })();
     </script>
   </body>
 </html>
