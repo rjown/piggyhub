@@ -15,7 +15,6 @@
       font-family: 'Share Tech Mono', monospace;
       color: white;
       text-align: center;
-      position: relative; /* para posicionar perfil */
     }
 
     h1 {
@@ -23,8 +22,7 @@
       position: relative;
       color: white;
       text-transform: uppercase;
-      margin: 40px 0 5px;
-      z-index: 1; /* para ficar abaixo da foto */
+      margin: 20px 0 5px;
     }
 
     .subtitle {
@@ -32,8 +30,6 @@
       font-style: italic;
       margin-bottom: 30px;
       color: #ccc;
-      z-index: 1;
-      position: relative;
     }
 
     nav {
@@ -76,19 +72,40 @@
       margin-bottom: 30px;
     }
 
-    /* Removido .centered-image para Home, conforme pedido */
+    .centered-image {
+      display: block;
+      margin: 30px auto 0;
+      max-width: 100%;
+      height: auto;
+    }
 
     .profile-pic {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       border: 2px solid #999;
       box-shadow: 0 0 4px #666;
-      z-index: 10; /* para ficar acima do título */
+      margin: 30px auto 10px;
+      display: block;
+    }
+
+    .offer-button {
+      background: darkred;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      margin: 30px auto 20px;
+      font-size: 1em;
+      font-family: 'Share Tech Mono', monospace;
+      cursor: pointer;
+      display: block;
+    }
+
+    .offer-button small {
+      display: block;
+      font-size: 0.7em;
+      margin-top: 5px;
     }
 
     .flag {
@@ -97,165 +114,6 @@
       text-align: center;
       margin-bottom: 10px;
     }
-
-    /* botão Offer Yourself - será colocado depois do Contact */
-    #offerButton {
-      position: relative;
-      margin: 30px auto 10px;
-      width: 90px;
-      height: 90px;
-      background: #e60000;
-      border-radius: 50%;
-      box-shadow:
-        0 0 10px #e60000,
-        inset 0 0 20px #ff3333;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 0.95em;
-      color: white;
-      text-transform: uppercase;
-      user-select: none;
-      font-family: 'Share Tech Mono', monospace;
-      border: 2px solid #ff0000;
-      transition: box-shadow 0.3s ease;
-      z-index: 5;
-    }
-
-    #offerButton:hover {
-      box-shadow:
-        0 0 20px #ff0000,
-        inset 0 0 30px #ff4d4d;
-    }
-
-    #offerClickText {
-      text-align: center;
-      font-size: 0.7em;
-      color: #ccc;
-      margin-top: 5px;
-      font-family: 'Share Tech Mono', monospace;
-      user-select: none;
-    }
-
-    /* Carrossel container */
-    #carouselContainer {
-      max-width: 600px;
-      margin: 20px auto 40px;
-      overflow: hidden;
-      position: relative;
-      height: 80px; /* altura menor, sutil */
-    }
-
-    /* carrossel track */
-    #carouselTrack {
-      display: flex;
-      width: calc(9 * 110px);
-      animation: scrollCarousel 36s linear infinite;
-      gap: 10px;
-    }
-
-    #carouselTrack img {
-      width: 100px;
-      height: 70px;
-      object-fit: cover;
-      border-radius: 6px;
-      filter: brightness(0.85);
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes scrollCarousel {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-110px * 9));
-      }
-    }
-
-    footer {
-      font-size: 0.7em;
-      color: #aaa;
-      text-align: center;
-      margin-top: 60px;
-      padding-bottom: 20px;
-      white-space: pre-line;
-      user-select: none;
-    }
-
-    /* Formulário OFFER ajustado */
-    #offerForm {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #111;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #999;
-      box-shadow: 0 0 3px #555;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      color: white;
-      font-size: 0.8em;
-    }
-
-    #offerForm label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: bold;
-      color: #ccc;
-      text-shadow: none;
-    }
-
-    #offerForm label .icon {
-      font-size: 1.8em;
-      width: 30px;
-      text-align: center;
-    }
-
-    #offerForm select,
-    #offerForm textarea,
-    #offerForm input[type="text"] {
-      background: #1b1b1b;
-      border: 1px solid #666;
-      border-radius: 6px;
-      color: white;
-      padding: 10px;
-      font-size: 0.9em;
-      box-shadow: none;
-    }
-
-    #offerForm select:focus,
-    #offerForm textarea:focus,
-    #offerForm input[type="text"]:focus {
-      outline: none;
-      border-color: #aaa;
-      background: #222;
-    }
-
-    #offerForm textarea {
-      resize: vertical;
-      min-height: 60px;
-    }
-
-    #offerForm button {
-      background: #444;
-      border: 1px solid #888;
-      border-radius: 10px;
-      color: white;
-      font-size: 1em;
-      padding: 12px 20px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    #offerForm button:hover {
-      background: #555;
-    }
-
   </style>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
@@ -273,11 +131,14 @@
     <a onclick="showSection('about')">About</a>
     <a onclick="showSection('projects')">Projects</a>
     <a onclick="showSection('contact')">Contact</a>
-    <!-- removido offer yourself do menu conforme pedido -->
   </nav>
 
   <!-- HOME -->
   <div id="home" class="section active">
+    <button class="offer-button" onclick="showSection('offer')">
+      Offer Yourself
+      <small>Click Here</small>
+    </button>
     <div class="home-text">
       <div class="flag">🇺🇸</div>
       <p>Become a whore, join the army of pigs without dignity. Turn off your brain and let your desires speak louder 😵‍💫.</p>
@@ -285,7 +146,7 @@
       <div class="flag">🇧🇷</div>
       <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
     </div>
-    <!-- REMOVIDA A IMAGEM plankton_home.jpg DO MEIO DA HOME -->
+    <img src="images/plankton_home.jpg" alt="Plankton" class="centered-image" loading="lazy">
   </div>
   <!-- ABOUT -->
   <div id="about" class="section">
@@ -370,12 +231,8 @@
     <div class="link-block">
       <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
     </div>
-
-    <!-- Botão Offer Yourself -->
-    <button id="offerButton" onclick="showSection('offer')">Offer Yourself</button>
-    <div id="offerClickText">Click Here</div>
   </div>
- <!-- OFFER YOURSELF -->
+  <!-- OFFER YOURSELF -->
   <div id="offer" class="section">
     <form id="offerForm">
       <label for="from_name"><span class="icon">🐷</span> What should I call you:</label>
@@ -414,19 +271,12 @@
     </form>
   </div>
 
-  <!-- Pequeno carrossel de imagens - bônus acima do rodapé -->
-  <div id="carouselContainer">
-    <div id="carousel">
-      <img src="images/carrossel_1.jpg" alt="Slide 1" loading="lazy">
-      <img src="images/carrossel_2.jpg" alt="Slide 2" loading="lazy">
-      <img src="images/carrossel_3.jpg" alt="Slide 3" loading="lazy">
-      <img src="images/carrossel_4.jpg" alt="Slide 4" loading="lazy">
-      <img src="images/carrossel_5.jpg" alt="Slide 5" loading="lazy">
-      <img src="images/carrossel_6.jpg" alt="Slide 6" loading="lazy">
-      <img src="images/carrossel_7.jpg" alt="Slide 7" loading="lazy">
-      <img src="images/carrossel_8.jpg" alt="Slide 8" loading="lazy">
-      <img src="images/carrossel_9.jpg" alt="Slide 9" loading="lazy">
-    </div>
+  <!-- Custom Offer Yourself Button outside menu -->
+  <div style="text-align:center; margin: 20px 0;">
+    <button id="offerBtn" style="font-family: 'Share Tech Mono', monospace; font-size: 1em; padding: 10px 20px; border-radius: 10px; border: 2px solid #f0f; background: transparent; color: #f0f; cursor: pointer;">
+      Offer Yourself<br>
+      <small style="font-size: 0.6em; display: block;">Click Here</small>
+    </button>
   </div>
 
   <footer>
@@ -439,69 +289,28 @@ Humiliation is not punishment, it's a reward.
 Think less. Feel more. Obey always.
   </footer>
 
-  <style>
-    /* Botão vermelho redondo e texto "Click Here" */
-    #offerButton {
-      margin: 20px auto 5px;
-      display: block;
-      background-color: #e60000;
-      border: none;
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1.1em;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 0 10px #e60000;
-      transition: box-shadow 0.3s ease;
-      user-select: none;
-    }
-
-    #offerButton:hover {
-      box-shadow: 0 0 20px #ff3333;
-    }
-
-    #offerClickText {
-      text-align: center;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.75em;
-      color: #bbb;
-      margin-bottom: 40px;
-      user-select: none;
-    }
-
-    /* Carrossel suave pequeno */
-    #carouselContainer {
-      width: 100%;
-      overflow: hidden;
-      margin: 0 auto 40px;
-      max-width: 600px;
-    }
-
-    #carousel {
-      display: flex;
-      gap: 10px;
-      animation: scrollCarousel 45s linear infinite;
-    }
-
-    #carousel img {
-      width: 32%;
-      border-radius: 6px;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes scrollCarousel {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-66.66%); }
-    }
-  </style>
-
   <script>
-    // Evento do botão para abrir a seção Offer
-    document.getElementById('offerButton').addEventListener('click', function() {
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    // Event listener for the new button
+    document.getElementById('offerBtn').addEventListener('click', function() {
       showSection('offer');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('offerForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
+        .then(function () {
+          alert('Form sent successfully!');
+          document.getElementById('offerForm').reset();
+        }, function (error) {
+          alert('Failed to send form. Please try again.');
+          console.error('Error sending form:', error);
+        });
     });
   </script>
