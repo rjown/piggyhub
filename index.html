@@ -197,7 +197,7 @@
         background: #555;
       }
 
-      /* Estilos do carrossel - adicionado */
+      /* Estilos do carrossel - ajustado para fotos */
       #photo-carousel {
         max-width: 600px;
         margin: 20px auto 40px;
@@ -303,8 +303,8 @@
           <img src="images/modelo4_foto3.jpg" alt="Lara 3" loading="lazy">
         </div>
       </div>
-            </div>
-            <!-- CONTACT -->
+    </div>
+    <!-- CONTACT -->
     <div id="contact" class="section">
       <div class="link-block">
         <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_own" target="_blank" rel="noopener noreferrer">t.me/rj_own</a>
@@ -328,7 +328,6 @@
         <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
       </div>
     </div>
-
     <!-- CARROSSEL DE FOTOS -->
     <div id="photo-carousel">
       <div id="carousel-track">
@@ -361,8 +360,8 @@
           <option value="">--Select--</option>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
-        </select>
-        <label for="where_to_text"><span class="icon">💬</span> Where should I text you:</label>
+  </select>
+  <label for="where_to_text"><span class="icon">💬</span> Where should I text you:</label>
         <select name="where_to_text" id="where_to_text" required>
           <option value="">--Select--</option>
           <option value="Telegram">Telegram</option>
@@ -418,7 +417,7 @@
           track.style.transform = `translateX(${moveX}%)`;
         }
 
-        setInterval(moveCarousel, 2000);
+        setInterval(moveCarousel, 1500);
       })();
     </script>
   </body>
