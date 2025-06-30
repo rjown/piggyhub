@@ -126,150 +126,287 @@
         white-space: pre-line;
         user-select: none;
       }
-      /* Estilos do carrossel - visível só na Home */
-      #photo-carousel {
-        max-width: 600px;
-        margin: 20px auto 40px;
-        overflow: hidden;
-        border-radius: 8px;
-        border: 1px solid #444;
-      }
-      #carousel-track {
-        display: flex;
-        transition: transform 0.5s ease;
-        will-change: transform;
-      }
-      #carousel-track img {
-        width: 33.333%;
-        object-fit: cover;
-        flex-shrink: 0;
-        height: 180px;
-      }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init("zPqYpeD99BQa1yXzj");
-      })();
-    </script>
-  </head>
-  <body>
-    <img src="images/plankton_home.jpg" alt="Profile Picture" class="centered-image" loading="lazy">
-    <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
-    <div class="subtitle">by rj_own</div>
-    <nav>
-      <a onclick="showSection('home')">Home</a>
-      <a onclick="showSection('about')">About</a>
-      <a onclick="showSection('projects')">Projects</a>
-      <a onclick="showSection('contact')">Contact</a>
-      <a onclick="showSection('offer')">Offer Yourself</a>
+      /* Formulário OFFER ajustado */
+    #offerForm {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #999;
+      box-shadow: 0 0 3px #555;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: white;
+      font-size: 0.8em;
+    }
+    #offerForm label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: #ccc;
+      text-shadow: none;
+    }
+    #offerForm label .icon {
+      font-size: 1.8em;
+      width: 30px;
+      text-align: center;
+    }
+    #offerForm select,
+    #offerForm textarea,
+    #offerForm input[type="text"] {
+      background: #1b1b1b;
+      border: 1px solid #666;
+      border-radius: 6px;
+      color: white;
+      padding: 10px;
+      font-size: 0.9em;
+      box-shadow: none;
+    }
+    #offerForm select:focus,
+    #offerForm textarea:focus,
+    #offerForm input[type="text"]:focus {
+      outline: none;
+      border-color: #aaa;
+      background: #222;
+    }
+    #offerForm textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+    #offerForm button {
+      background: #444;
+      border: 1px solid #888;
+      border-radius: 10px;
+      color: white;
+      font-size: 1em;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #offerForm button:hover {
+      background: #555;
+    }
+  /* Estilos do carrossel - visível só na Home */
+  #photo-carousel {
+    max-width: 600px;
+    margin: 20px auto 40px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #444;
+  }
+  #carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+  #carousel-track img {
+    width: 33.333%;
+    object-fit: cover;
+    flex-shrink: 0;
+    height: 180px;
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("zPqYpeD99BQa1yXzj");
+  })();
+</script>
+</head>
+<body>
+  <img src="images/plankton_home.jpg" alt="Profile Picture" class="centered-image" loading="lazy">
+  <h1 data-text="Piggy's Playground">Piggy's Playground</h1>
+  <div class="subtitle">by rj_own</div>
+  <nav>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('projects')">Projects</a>
+    <a onclick="showSection('contact')">Contact</a>
+    <a onclick="showSection('offer')">Offer Yourself</a>
     </nav>
-
-    <!-- CONTACT -->
-    <div id="contact" class="section">
-      <div class="link-block">
-        <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_ownn" target="_blank" rel="noopener noreferrer">t.me/rj_ownn</a>
-      </div>
-      <div class="link-block">
-        <span class="custom-icon erome">E</span> - <a href="https://www.erome.com/rj_own" target="_blank" rel="noopener noreferrer">erome.com/rj_own</a>
-      </div>
-      <div class="link-block">
-        <span class="custom-icon fl">FL</span> - <a href="https://fetlife.com/rj_own" target="_blank" rel="noopener noreferrer">fetlife.com/rj_own</a>
-      </div>
-      <div class="link-block">
-        <span class="custom-icon"><span class="sb-s">S</span><span class="sb-b">B</span></span> - <a href="https://sltb.live/user/rj_own/" target="_blank" rel="noopener noreferrer">sltb.live/user/rj_own</a>
-      </div>
-      <div class="link-block">
-        <i class="fab fa-instagram"></i> - <a href="https://www.instagram.com/rj_own?igsh=MTg1Zm9xOGk4YjJuaw==" target="_blank" rel="noopener noreferrer">@rj_own</a>
-      </div>
-      <div class="link-block">
-        <i class="fab fa-snapchat-ghost"></i> - <a href="https://www.snapchat.com/add/rj_own" target="_blank" rel="noopener noreferrer">snapchat.com/add/rj_own</a>
-      </div>
-      <div class="link-block">
-        <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
+    <!-- HOME -->
+  <div id="home" class="section active">
+    <div class="home-text">
+      <div class="flag">🇺🇸</div>
+      <p>Become a whore, join the army of pigs without dignity. Turn off your brain and let your desires speak louder 😵‍💫.</p>
+      <br>
+      <div class="flag">🇧🇷</div>
+      <p>Torne-se uma puta, faça parte do exército de porcas sem dignidade. Desligue o cérebro e deixe seus desejos falarem mais alto 😵‍💫.</p>
+    </div>
+    <!-- CARROSSEL DE FOTOS (somente na Home) -->
+    <div id="photo-carousel">
+      <div id="carousel-track">
+        <img src="images/carrossel_2.jpg" alt="Carousel 2" loading="lazy" width="200" height="180">
+        <img src="images/carrossel_3.jpg" alt="Carousel 3" loading="lazy" width="200" height="180">
+        <img src="images/carrossel_5.jpg" alt="Carousel 5" loading="lazy" width="200" height="180">
+        <img src="images/carrossel_6.jpg" alt="Carousel 6" loading="lazy" width="200" height="180">
+        <img src="images/puta5.jpg" alt="Carousel 5" loading="lazy" width="200" height="180">
       </div>
     </div>
-    <!-- OFFER YOURSELF -->
-    <div id="offer" class="section">
-      <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.8em; color: #ccc; text-align: center; margin-bottom: 20px;">
-        If I don’t message you in 24h, you probably typed your nickname wrong.
-      </p>
-      <form id="offerForm">
-        <label for="from_name"><span class="icon">🐷</span> What should I call you:</label>
-        <select name="from_name" id="from_name" required>
-          <option value="">--Select--</option>
-          <option value="Pig">Pig</option>
-          <option value="Fat">Fat</option>
-          <option value="Cow">Cow</option>
-          <option value="Slut">Slut</option>
-        </select>
-        <label for="limits"><span class="icon">❌</span> Limits:</label>
-        <textarea id="limits" name="limits" rows="3" placeholder="Write your limits here..." required></textarea>
-        <label for="expose"><span class="icon">🌐</span> Want to be exposed:</label>
-        <select name="expose" id="expose" required>
-          <option value="">--Select--</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-        <label for="where_to_text"><span class="icon">💬</span> Where should I text you:</label>
-        <select name="where_to_text" id="where_to_text" required>
-          <option value="">--Select--</option>
-          <option value="Telegram">Telegram</option>
-          <option value="Instagram">Instagram</option>
-          <option value="Reddit">Reddit</option>
-          <option value="Kik">Kik</option>
-          <option value="Snapchat">Snapchat</option>
-        </select>
-        <label for="nickname">Your nickname:</label>
-        <input type="text" id="nickname" name="nickname" placeholder="Enter your nickname" required>
-        <button type="submit">Become a Slut</button>
-      </form>
+  </div>
+  <!-- ABOUT -->
+  <div id="about" class="section">
+    <div class="text-block">
+      <div class="flag">🇺🇸</div>
+      <div>
+        <p>Hello slut, if you've come this far it means you're looking for attention and fun. Then I'll explain how things work.</p>
+        <p>I'm <b><i>rj_own</i></b> but you can call me RJ or master. My targets are always American, European and Brazilian piggys. So don't be afraid to send me messages, regardless of the language you'll be treated like a pigslut!</p>
+        <p>Some people do it for money or some other lucrative means, but guess what? I'm a fucking sadist who does it for fun. Watching you humiliate yourself is literally my hobby. 100% free.</p>
+        <p>Some of the whores love to be exposed, so I often advertise them in my links. This is always discussed beforehand, for example, if you want me to post it, if you don't it's just between us.</p>
+        <p>So don't waste time contacting me and remember, whenever you see “Plankton” you'll know that bloody <b><i>rj_own</i></b> was here!</p>
+      </div>
     </div>
-    <footer>
-      I'm going to brainwash you.
-      You will feel and do things like never before.
-      Turn off your brain.
-      Obey without thinking, desire without limits.
-      You were born for this, you just took time to accept it.
-      Humiliation is not punishment, it's a reward.
-      Think less. Feel more. Obey always.
-    </footer>
-    <script>
-      function showSection(id) {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(sec => sec.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-      }
-
-      document.getElementById('offerForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
-          .then(function () {
-            alert('Form sent successfully!');
-            document.getElementById('offerForm').reset();
-          }, function (error) {
-            alert('Failed to send form. Please try again.');
-            console.error('Error sending form:', error);
-          });
-      });
-
-      (function() {
-        const track = document.getElementById('carousel-track');
-        const images = track.children;
-        const totalImages = images.length;
-        let index = 0;
-
-        function moveCarousel() {
-          index++;
-          if (index > totalImages - 3) {
-            index = 0;
-          }
-          const moveX = -index * (100 / 3);
-          track.style.transform = `translateX(${moveX}%)`;
+    <div class="text-block">
+      <div class="flag">🇧🇷</div>
+      <div>
+        <p>Olá puta, se você chegou até aqui significa que está procurando atenção e diversão. Então vou te explicar como as coisas funcionam.</p>
+        <p>Eu sou o <b><i>rj_own</i></b> mas você pode me chamar de RJ ou mestre. Meus alvos sempre são porcas americanas, européias e brasileiras. Então não tenha medo de me mandar mensagens, independente do idioma você será tratada como uma puta porca!</p>
+        <p>Algumas pessoas fazem isso por dinheiro ou algum outro meio lucrativo, mas adivinha só... Eu sou a porra de um sádico que faz isso por diversão. Ver você se humilhar é literalmente meu hobbie. 100% grátis.</p>
+        <p>Algumas das putas amam ser expostas, então eu costumo divulgar elas em meus links. Isso é sempre discutido antes, por exemplo, se você quiser eu posto, se não quiser vai ficar só entre nós.</p>
+        <p>Então não perca tempo e entre em contato comigo e lembre-se, sempre que ver o "Plankton" você saberá que o maldito <b><i>rj_own</i></b> esteve aqui!</p>
+      </div>
+    </div>
+  </div>
+  <!-- PROJECTS -->
+  <div id="projects" class="section">
+    <div class="model-row">
+      <h3>Fat Spicy</h3>
+      <div class="model-grid">
+        <img src="images/modelo1_foto1.jpg" alt="Fat Spicy 1" loading="lazy">
+        <img src="images/modelo1_foto2.jpg" alt="Fat Spicy 2" loading="lazy">
+        <img src="images/modelo1_foto3.jpg" alt="Fat Spicy 3" loading="lazy">
+      </div>
+    </div>
+    <div class="model-row">
+      <h3>Piggy Melissa</h3>
+      <div class="model-grid">
+        <img src="images/modelo2_foto1.jpg" alt="Piggy Melissa 1" loading="lazy">
+        <img src="images/modelo2_foto2.jpg" alt="Piggy Melissa 2" loading="lazy">
+        <img src="images/modelo2_foto3.jpg" alt="Piggy Melissa 3" loading="lazy">
+      </div>
+    </div>
+    <div class="model-row">
+      <h3>Brainless Elisha</h3>
+      <div class="model-grid">
+        <img src="images/modelo3_foto1.jpg" alt="Brainless Elisha 1" loading="lazy">
+        <img src="images/modelo3_foto2.jpg" alt="Brainless Elisha 2" loading="lazy">
+        <img src="images/modelo3_foto3.jpg" alt="Brainless Elisha 3" loading="lazy">
+      </div>
+    </div>
+    <div class="model-row">
+      <h3>Lara, Brazilian pregnant slut</h3>
+      <div class="model-grid">
+        <img src="images/modelo4_foto1.jpg" alt="Lara 1" loading="lazy">
+        <img src="images/modelo4_foto2.jpg" alt="Lara 2" loading="lazy">
+        <img src="images/modelo4_foto3.jpg" alt="Lara 3" loading="lazy">
+      </div>
+    </div>
+  </div>
+  <!-- CONTACT -->
+  <div id="contact" class="section">
+    <div class="link-block">
+      <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_ownn" target="_blank" rel="noopener noreferrer">t.me/rj_ownn</a>
+    </div>
+    <div class="link-block">
+      <span class="custom-icon erome">E</span> - <a href="https://www.erome.com/rj_own" target="_blank" rel="noopener noreferrer">erome.com/rj_own</a>
+    </div>
+    <div class="link-block">
+      <span class="custom-icon fl">FL</span> - <a href="https://fetlife.com/rj_own" target="_blank" rel="noopener noreferrer">fetlife.com/rj_own</a>
+    </div>
+    <div class="link-block">
+      <span class="custom-icon"><span class="sb-s">S</span><span class="sb-b">B</span></span> - <a href="https://sltb.live/user/rj_own/" target="_blank" rel="noopener noreferrer">sltb.live/user/rj_own</a>
+    </div>
+    <div class="link-block">
+      <i class="fab fa-instagram"></i> - <a href="https://www.instagram.com/rj_own?igsh=MTg1Zm9xOGk4YjJuaw==" target="_blank" rel="noopener noreferrer">@rj_own</a>
+    </div>
+    <div class="link-block">
+      <i class="fab fa-snapchat-ghost"></i> - <a href="https://www.snapchat.com/add/rj_own" target="_blank" rel="noopener noreferrer">snapchat.com/add/rj_own</a>
+    </div>
+    <div class="link-block">
+      <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
+    </div>
+  </div>
+  <!-- OFFER YOURSELF -->
+  <div id="offer" class="section">
+    <form id="offerForm">
+      <label for="from_name"><span class="icon">🐷</span> What should I call you:</label>
+      <select name="from_name" id="from_name" required>
+        <option value="">--Select--</option>
+        <option value="Pig">Pig</option>
+        <option value="Fat">Fat</option>
+        <option value="Cow">Cow</option>
+        <option value="Slut">Slut</option>
+      </select>
+      <label for="limits"><span class="icon">❌</span> Limits:</label>
+      <textarea id="limits" name="limits" rows="3" placeholder="Write your limits here..." required></textarea>
+      <label for="expose"><span class="icon">🌐</span> Want to be exposed:</label>
+      <select name="expose" id="expose" required>
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <label for="where_to_text"><span class="icon">💬</span> Where should I text you:</label>
+      <select name="where_to_text" id="where_to_text" required>
+        <option value="">--Select--</option>
+        <option value="Telegram">Telegram</option>
+        <option value="Instagram">Instagram</option>
+        <option value="Reddit">Reddit</option>
+        <option value="Kik">Kik</option>
+        <option value="Snapchat">Snapchat</option>
+      </select>
+      <label for="nickname">Your nickname:</label>
+      <input type="text" id="nickname" name="nickname" placeholder="Enter your nickname" required>
+      <button type="submit">Become a Slut</button>
+    </form>
+  </div>
+  <footer>
+    I'm going to brainwash you.
+    You will feel and do things like never before.
+    Turn off your brain.
+    Obey without thinking, desire without limits.
+    You were born for this, you just took time to accept it.
+    Humiliation is not punishment, it's a reward.
+    Think less. Feel more. Obey always.
+  </footer>
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    
+    document.getElementById('offerForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
+        .then(function () {
+          alert('Form sent successfully!');
+          document.getElementById('offerForm').reset();
+        }, function (error) {
+          alert('Failed to send form. Please try again.');
+          console.error('Error sending form:', error);
+        });
+    });
+    
+    (function() {
+      const track = document.getElementById('carousel-track');
+      const images = track.children;
+      const totalImages = images.length;
+      let index = 0;
+    
+      function moveCarousel() {
+        index++;
+        if (index > totalImages - 3) {
+          index = 0;
         }
-
-        setInterval(moveCarousel, 1500);
-      })();
-    </script>
-  </body>
+        const moveX = -index * (100 / 3);
+        track.style.transform = `translateX(${moveX}%)`;
+      }
+    
+      setInterval(moveCarousel, 1500);
+    })();
+  </script>
+</body>
 </html>
