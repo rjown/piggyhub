@@ -241,7 +241,6 @@
       </div>
     </div>
   </div>
-
   <!-- ABOUT -->
   <div id="about" class="section">
     <div class="text-block">
@@ -301,6 +300,7 @@
       </div>
     </div>
   </div>
+
   <!-- CONTACT -->
   <div id="contact" class="section">
     <div class="link-block">
@@ -325,6 +325,7 @@
       <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
     </div>
   </div>
+
   <!-- OFFER YOURSELF -->
   <div id="offer" class="section">
     <form id="offerForm">
@@ -358,6 +359,7 @@
       <button type="submit">Become a Slut</button>
     </form>
   </div>
+
   <footer>
     I'm going to brainwash you.
     You will feel and do things like never before.
@@ -367,13 +369,19 @@
     Humiliation is not punishment, it's a reward.
     Think less. Feel more. Obey always.
   </footer>
+
+  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
   <script>
+    (function() {
+      emailjs.init('zPqYpeD99BQa1yXzj'); // Public Key (User ID)
+    })();
+
     function showSection(id) {
       const sections = document.querySelectorAll('.section');
       sections.forEach(sec => sec.classList.remove('active'));
       document.getElementById(id).classList.add('active');
     }
-    
+
     document.getElementById('offerForm').addEventListener('submit', function (event) {
       event.preventDefault();
       emailjs.sendForm('service_b59mnv7', 'template_g2uwtef', this)
@@ -385,13 +393,13 @@
           console.error('Error sending form:', error);
         });
     });
-    
+
     (function() {
       const track = document.getElementById('carousel-track');
       const images = track.children;
       const totalImages = images.length;
       let index = 0;
-    
+
       function moveCarousel() {
         index++;
         if (index > totalImages - 3) {
@@ -400,7 +408,7 @@
         const moveX = -index * (100 / 3);
         track.style.transform = `translateX(${moveX}%)`;
       }
-    
+
       setInterval(moveCarousel, 1500);
     })();
   </script>
