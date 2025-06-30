@@ -94,13 +94,14 @@
       }
       .model-row h3 {
         margin-bottom: 10px;
+        cursor: pointer; /* Adicionado para indicar que é clicável */
       }
       .model-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
       }
-      .model-grid img {
+      .model-grid img, .model-grid video {
         width: 100%;
         height: auto;
         border-radius: 6px;
@@ -217,11 +218,10 @@
     <a onclick="showSection('home')">Home</a>
     <a onclick="showSection('about')">About</a>
     <a onclick="showSection('projects')">Projects</a>
-    <a onclick="showSection('exposed_sluts')">Exposed Sluts</a>
+    <a onclick="showSection('exposed')">Exposed Sluts</a>
     <a onclick="showSection('contact')">Contact</a>
     <a onclick="showSection('offer')">Offer Yourself</a>
   </nav>
-
   <!-- HOME -->
   <div id="home" class="section active">
     <div class="home-text">
@@ -266,6 +266,7 @@
       </div>
     </div>
   </div>
+
   <!-- PROJECTS -->
   <div id="projects" class="section">
     <div class="model-row">
@@ -301,17 +302,18 @@
       </div>
     </div>
   </div>
-  <!-- EXPOSED SLUTS -->
-  <div id="exposed" class="section">
-    <div class="model-row">
-      <h3>🐷 Maya Moore</h3>
-      <div class="model-grid">
-        <!-- Conteúdo pode ser adicionado aqui -->
-        <p>No content added yet.</p>
+  <!-- CONTINUAÇÃO DOS PROJECTS -->
+    <div id="exposed" class="section">
+      <div class="model-row">
+        <h3 id="maya-moore-toggle">🐷 Maya Moore</h3>
+        <div id="maya-moore-content" style="display:none;">
+          <div class="model-grid">
+            <!-- Conteúdo (fotos e vídeos) será adicionado aqui depois -->
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- CONTACT -->
+    <!-- CONTACT -->
   <div id="contact" class="section">
     <div class="link-block">
       <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_ownn" target="_blank" rel="noopener noreferrer">t.me/rj_ownn</a>
@@ -413,6 +415,16 @@
     
       setInterval(moveCarousel, 1500);
     })();
+
+    // Script para alternar visibilidade da pasta 🐷 Maya Moore
+    document.getElementById('maya-moore-toggle').addEventListener('click', function() {
+      const content = document.getElementById('maya-moore-content');
+      if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+      } else {
+        content.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
