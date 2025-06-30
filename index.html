@@ -300,7 +300,6 @@
       </div>
     </div>
   </div>
-
   <!-- CONTACT -->
   <div id="contact" class="section">
     <div class="link-block">
@@ -325,7 +324,6 @@
       <i class="fas fa-comments"></i> - <a href="https://kik.me/rj_own" target="_blank" rel="noopener noreferrer">kik.me/rj_own</a>
     </div>
   </div>
-
   <!-- OFFER YOURSELF -->
   <div id="offer" class="section">
     <form id="offerForm" name="offerForm">
@@ -359,7 +357,6 @@
       <button type="submit">Become a Slut</button>
     </form>
   </div>
-
   <footer>
     I'm going to brainwash you.
     You will feel and do things like never before.
@@ -369,11 +366,10 @@
     Humiliation is not punishment, it's a reward.
     Think less. Feel more. Obey always.
   </footer>
-
-  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-    (function() {
-      emailjs.init('zPqYpeD99BQa1yXzj'); // Public Key (User ID)
+    (function(){
+      emailjs.init('zPqYpeD99BQa1yXzj'); // Sua public key
     })();
 
     function showSection(id) {
@@ -388,9 +384,11 @@
         .then(function () {
           alert('Form sent successfully!');
           document.getElementById('offerForm').reset();
+          showSection('offer'); // Mantém a aba Offer aberta após o envio
         }, function (error) {
           alert('Failed to send form. Please try again.');
           console.error('Error sending form:', error);
+          showSection('offer'); // Mantém a aba Offer aberta em caso de erro
         });
     });
 
