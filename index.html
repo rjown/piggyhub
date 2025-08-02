@@ -73,16 +73,9 @@
       }
       .flag {
         font-size: 2em;
-        display: block;
-        text-align: center;
         margin-bottom: 10px;
       }
-      /* Alteração para centralizar emojis na seção about */
-      #about .flag {
-        text-align: center;
-        margin: 0 auto 10px auto;
-        display: block;
-      }
+      /* Corrigido: text-block com flex vertical e bandeira centralizada */
       .text-block {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid #444;
@@ -90,17 +83,14 @@
         margin-bottom: 30px;
         border-radius: 6px;
         display: flex;
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: center;
         gap: 12px;
         color: white;
       }
-      /* Ajuste para a seção about: flag e texto alinhados verticalmente */
-      #about .text-block {
-        display: block;
-        text-align: center;
-      }
-      #about .text-block > div {
+      .text-block > div {
         text-align: left;
+        width: 100%;
       }
       .model-row {
         margin-bottom: 40px;
@@ -275,42 +265,41 @@
         </div>
       </div>
     </div>
-
     <div id="projects" class="section">
-      <div class="model-row">
-        <h3>Fat Spicy</h3>
-        <div class="model-grid">
-          <img src="images/modelo1_foto1.jpg" alt="Fat Spicy 1" loading="lazy">
-          <img src="images/modelo1_foto2.jpg" alt="Fat Spicy 2" loading="lazy">
-          <img src="images/modelo1_foto3.jpg" alt="Fat Spicy 3" loading="lazy">
-        </div>
-      </div>
-      <div class="model-row">
-        <h3>Piggy Melissa</h3>
-        <div class="model-grid">
-          <img src="images/modelo2_foto1.jpg" alt="Piggy Melissa 1" loading="lazy">
-          <img src="images/modelo2_foto2.jpg" alt="Piggy Melissa 2" loading="lazy">
-          <img src="images/modelo2_foto3.jpg" alt="Piggy Melissa 3" loading="lazy">
-        </div>
-      </div>
-      <div class="model-row">
-        <h3>Brainless Elisha</h3>
-        <div class="model-grid">
-          <img src="images/modelo3_foto1.jpg" alt="Brainless Elisha 1" loading="lazy">
-          <img src="images/modelo3_foto2.jpg" alt="Brainless Elisha 2" loading="lazy">
-          <img src="images/modelo3_foto3.jpg" alt="Brainless Elisha 3" loading="lazy">
-        </div>
-      </div>
-      <div class="model-row">
-        <h3>Lara, Brazilian pregnant slut</h3>
-        <div class="model-grid">
-          <img src="images/modelo4_foto1.jpg" alt="Lara 1" loading="lazy">
-          <img src="images/modelo4_foto2.jpg" alt="Lara 2" loading="lazy">
-          <img src="images/modelo4_foto3.jpg" alt="Lara 3" loading="lazy">
-        </div>
-      </div>
+  <div class="model-row">
+    <h3>Fat Spicy</h3>
+    <div class="model-grid">
+      <img src="images/modelo1_foto1.jpg" alt="Fat Spicy 1" loading="lazy">
+      <img src="images/modelo1_foto2.jpg" alt="Fat Spicy 2" loading="lazy">
+      <img src="images/modelo1_foto3.jpg" alt="Fat Spicy 3" loading="lazy">
     </div>
-    <!-- CONTACT -->
+  </div>
+  <div class="model-row">
+    <h3>Piggy Melissa</h3>
+    <div class="model-grid">
+      <img src="images/modelo2_foto1.jpg" alt="Piggy Melissa 1" loading="lazy">
+      <img src="images/modelo2_foto2.jpg" alt="Piggy Melissa 2" loading="lazy">
+      <img src="images/modelo2_foto3.jpg" alt="Piggy Melissa 3" loading="lazy">
+    </div>
+  </div>
+  <div class="model-row">
+    <h3>Brainless Elisha</h3>
+    <div class="model-grid">
+      <img src="images/modelo3_foto1.jpg" alt="Brainless Elisha 1" loading="lazy">
+      <img src="images/modelo3_foto2.jpg" alt="Brainless Elisha 2" loading="lazy">
+      <img src="images/modelo3_foto3.jpg" alt="Brainless Elisha 3" loading="lazy">
+    </div>
+  </div>
+  <div class="model-row">
+    <h3>Lara, Brazilian pregnant slut</h3>
+    <div class="model-grid">
+      <img src="images/modelo4_foto1.jpg" alt="Lara 1" loading="lazy">
+      <img src="images/modelo4_foto2.jpg" alt="Lara 2" loading="lazy">
+      <img src="images/modelo4_foto3.jpg" alt="Lara 3" loading="lazy">
+    </div>
+  </div>
+</div>
+<!-- CONTACT -->
 <div id="contact" class="section">
   <div class="link-block">
     <i class="fab fa-telegram"></i> - <a href="https://t.me/rj_ownn" target="_blank" rel="noopener noreferrer">t.me/rj_ownn</a>
